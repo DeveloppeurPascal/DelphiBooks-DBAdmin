@@ -1,0 +1,133 @@
+object frmGenerationSite: TfrmGenerationSite
+  Left = 0
+  Top = 0
+  Caption = 'G'#233'n'#233'ration du site'
+  ClientHeight = 233
+  ClientWidth = 1024
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnShow = FormShow
+  DesignerMasterStyle = 0
+  object lblDossierDesTemplates: TLabel
+    Align = Top
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 5.000000000000000000
+    Size.Width = 1014.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'lblDossierDesTemplates'
+    TabOrder = 2
+    object btnChoixDossierDesTemplates: TButton
+      Align = Right
+      Position.X = 984.000000000000000000
+      Size.Width = 30.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      Text = '. . .'
+      OnClick = btnChoixDossierDesTemplatesClick
+    end
+  end
+  object lblDossierDuSite: TLabel
+    Align = Top
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 32.000000000000000000
+    Size.Width = 1014.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'lblDossierDuSite'
+    TabOrder = 3
+    object btnChoixDossierDuSite: TButton
+      Align = Right
+      Position.X = 984.000000000000000000
+      Size.Width = 30.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      Text = '. . .'
+      OnClick = btnChoixDossierDuSiteClick
+    end
+  end
+  object btnFermer: TButton
+    Align = Top
+    Cancel = True
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 173.000000000000000000
+    Size.Width = 1014.000000000000000000
+    Size.Height = 44.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 7
+    Text = 'Fermer'
+    OnClick = btnFermerClick
+  end
+  object pbEtapes: TProgressBar
+    Align = Top
+    Orientation = Horizontal
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 59.000000000000000000
+    Size.Width = 1014.000000000000000000
+    Size.Height = 20.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object pbSousEtapes: TProgressBar
+    Align = Top
+    Orientation = Horizontal
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 89.000000000000000000
+    Size.Width = 1014.000000000000000000
+    Size.Height = 20.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object btnLancerGeneration: TButton
+    Align = Top
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 119.000000000000000000
+    Size.Width = 1014.000000000000000000
+    Size.Height = 44.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 6
+    Text = 'G'#233'n'#233'rer le site'
+    OnClick = btnLancerGenerationClick
+  end
+  object sdDossierDuSite: TSaveDialog
+    Options = [ofHideReadOnly, ofPathMustExist, ofEnableSizing]
+    Left = 64
+    Top = 152
+  end
+  object odDossierDesTemplates: TOpenDialog
+    Filter = 'Templates DelphiBooks|DephiBooks.tpl'
+    Options = [ofHideReadOnly, ofPathMustExist, ofFileMustExist, ofEnableSizing]
+    Left = 64
+    Top = 88
+  end
+  object qryLanguesDuSite: TFDQuery
+    Connection = dmBaseDeDonnees.db
+    Left = 296
+    Top = 16
+  end
+end

@@ -1,0 +1,78 @@
+object frmChoixLangue: TfrmChoixLangue
+  Left = 0
+  Top = 0
+  BorderStyle = Single
+  Caption = 'Choix d'#39'une langue'
+  ClientHeight = 219
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnShow = FormShow
+  DesignerMasterStyle = 0
+  object cbListeLangues: TComboBox
+    Align = Top
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 5.000000000000000000
+    Size.Width = 630.000000000000000000
+    Size.Height = 44.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+  end
+  object btnOk: TButton
+    Align = Top
+    Default = True
+    ModalResult = 1
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 59.000000000000000000
+    Size.Width = 630.000000000000000000
+    Size.Height = 44.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Choisir'
+  end
+  object btnCancel: TButton
+    Align = Top
+    Cancel = True
+    ModalResult = 2
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 113.000000000000000000
+    Size.Width = 630.000000000000000000
+    Size.Height = 44.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    Text = 'Annuler'
+  end
+  object btnGestionLangues: TButton
+    Align = Top
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 167.000000000000000000
+    Size.Width = 630.000000000000000000
+    Size.Height = 44.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Text = 'Gestion des langues'
+    OnClick = btnGestionLanguesClick
+  end
+  object FDQuery1: TFDQuery
+    Connection = dmBaseDeDonnees.db
+    Left = 520
+    Top = 96
+  end
+end

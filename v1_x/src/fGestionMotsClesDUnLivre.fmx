@@ -1,0 +1,176 @@
+object frmGestionMotsClesDUnLivre: TfrmGestionMotsClesDUnLivre
+  Left = 0
+  Top = 0
+  BorderStyle = Single
+  Caption = 'Form1'
+  ClientHeight = 480
+  ClientWidth = 900
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnShow = FormShow
+  DesignerMasterStyle = 0
+  object GridPanelLayout1: TGridPanelLayout
+    Align = Bottom
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 425.000000000000000000
+    Size.Width = 890.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    ColumnCollection = <
+      item
+        Value = 50.000000000000000000
+      end
+      item
+        Value = 50.000000000000000000
+      end>
+    ControlCollection = <
+      item
+        Column = 0
+        Control = btnOk
+        Row = 0
+      end
+      item
+        Column = 1
+        Control = btnCancel
+        Row = 0
+      end>
+    RowCollection = <
+      item
+        Value = 100.000000000000000000
+      end>
+    object btnOk: TButton
+      Anchors = []
+      Default = True
+      Position.X = 142.500000000000000000
+      Position.Y = 3.000000000000000000
+      Size.Width = 160.000000000000000000
+      Size.Height = 44.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Valider'
+      OnClick = btnOkClick
+    end
+    object btnCancel: TButton
+      Anchors = []
+      Cancel = True
+      Position.X = 587.500000000000000000
+      Position.Y = 3.000000000000000000
+      Size.Width = 160.000000000000000000
+      Size.Height = 44.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Annuler'
+      OnClick = btnCancelClick
+    end
+  end
+  object Layout1: TLayout
+    Align = Client
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Size.Width = 890.000000000000000000
+    Size.Height = 410.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    object Layout2: TLayout
+      Align = Client
+      Size.Width = 50.000000000000000000
+      Size.Height = 410.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      object Layout3: TLayout
+        Align = Center
+        Size.Width = 50.000000000000000000
+        Size.Height = 110.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object btnAjouter: TButton
+          Align = Top
+          Margins.Left = 5.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 5.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 5.000000000000000000
+          Position.Y = 5.000000000000000000
+          Size.Width = 40.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Text = '> +'
+          OnClick = btnAjouterClick
+        end
+        object btnSupprimer: TButton
+          Align = Top
+          Margins.Left = 5.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 5.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 5.000000000000000000
+          Position.Y = 59.000000000000000000
+          Size.Width = 40.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          Text = '< -'
+          OnClick = btnSupprimerClick
+        end
+      end
+    end
+    object lvListeComplete: TListView
+      ItemAppearanceClassName = 'TListItemAppearance'
+      ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+      HeaderAppearanceClassName = 'TListHeaderObjects'
+      FooterAppearanceClassName = 'TListHeaderObjects'
+      AlternatingColors = True
+      Align = Left
+      Size.Width = 420.000000000000000000
+      Size.Height = 410.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      ItemAppearanceObjects.ItemObjects.Accessory.Visible = False
+      OnDblClick = lvListeCompleteDblClick
+      CanSwipeDelete = False
+      SearchVisible = True
+      object btnGestionMotsCles: TButton
+        Anchors = [akRight, akBottom]
+        Position.X = 368.000000000000000000
+        Position.Y = 358.000000000000000000
+        Size.Width = 44.000000000000000000
+        Size.Height = 44.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = '+/-'
+        OnClick = btnGestionMotsClesClick
+      end
+    end
+    object lvListeDuLivre: TListView
+      ItemAppearanceClassName = 'TListItemAppearance'
+      ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+      HeaderAppearanceClassName = 'TListHeaderObjects'
+      FooterAppearanceClassName = 'TListHeaderObjects'
+      AlternatingColors = True
+      Align = Right
+      Position.X = 470.000000000000000000
+      Size.Width = 420.000000000000000000
+      Size.Height = 410.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      ItemAppearanceObjects.ItemObjects.Accessory.Visible = False
+      OnDblClick = lvListeDuLivreDblClick
+      CanSwipeDelete = False
+      SearchVisible = True
+    end
+  end
+  object FDQuery1: TFDQuery
+    Connection = dmBaseDeDonnees.db
+    Left = 424
+    Top = 320
+  end
+end

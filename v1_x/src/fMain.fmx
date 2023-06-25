@@ -1,0 +1,165 @@
+object frmMain: TfrmMain
+  Left = 0
+  Top = 0
+  BorderStyle = Single
+  Caption = 'Delphi Books Admin'
+  ClientHeight = 544
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object btnAuteurs: TButton
+    Align = Top
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 5.000000000000000000
+    Size.Width = 630.000000000000000000
+    Size.Height = 44.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Text = 'Gestion des auteurs'
+    OnClick = btnAuteursClick
+  end
+  object btnEditeurs: TButton
+    Align = Top
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 59.000000000000000000
+    Size.Width = 630.000000000000000000
+    Size.Height = 44.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Gestion des '#233'diteurs'
+    OnClick = btnEditeursClick
+  end
+  object btnLangues: TButton
+    Align = Top
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 113.000000000000000000
+    Size.Width = 630.000000000000000000
+    Size.Height = 44.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    Text = 'Gestion des langues'
+    OnClick = btnLanguesClick
+  end
+  object btnLecteurs: TButton
+    Align = Top
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 167.000000000000000000
+    Size.Width = 630.000000000000000000
+    Size.Height = 44.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Text = 'Gestion des lecteurs'
+    OnClick = btnLecteursClick
+  end
+  object btnLivres: TButton
+    Align = Top
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 221.000000000000000000
+    Size.Width = 630.000000000000000000
+    Size.Height = 44.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    Text = 'Gestion des livres'
+    OnClick = btnLivresClick
+  end
+  object btnMotsCles: TButton
+    Align = Top
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 275.000000000000000000
+    Size.Width = 630.000000000000000000
+    Size.Height = 44.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    Text = 'Gestion des mots cl'#233's'
+    OnClick = btnMotsClesClick
+  end
+  object btnGenerationSiteWeb: TButton
+    Align = Top
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 383.000000000000000000
+    Size.Width = 630.000000000000000000
+    Size.Height = 44.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 7
+    Text = 'G'#233'n'#233'ration du site web'
+    OnClick = btnGenerationSiteWebClick
+  end
+  object btnSynchroDB: TButton
+    Align = Top
+    Enabled = False
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 437.000000000000000000
+    Size.Width = 630.000000000000000000
+    Size.Height = 44.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 8
+    Text = 'Synchro de la base de donn'#233'es'
+    OnClick = btnSynchroDBClick
+  end
+  object btnFermer: TButton
+    Align = Top
+    Cancel = True
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 491.000000000000000000
+    Size.Width = 630.000000000000000000
+    Size.Height = 44.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 9
+    Text = 'Fermer'
+    OnClick = btnFermerClick
+  end
+  object btnSauvegardeDeLaBaseDeDonnees: TButton
+    Align = Top
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 329.000000000000000000
+    Size.Width = 630.000000000000000000
+    Size.Height = 44.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 6
+    Text = 'Backup DB'
+    OnClick = btnSauvegardeDeLaBaseDeDonneesClick
+  end
+end
