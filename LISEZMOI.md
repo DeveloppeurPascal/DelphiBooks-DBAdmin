@@ -18,6 +18,7 @@ Pour télécharger ce projet il est recommandé de passer par "git" mais vous po
 
 Ce dépôt de code dépend des dépôts suivants :
 
+* [DeveloppeurPascal/DeepL4Delphi](https://github.com/DeveloppeurPascal/DeepL4Delphi) doit être dans le sous-dossier ./lib-externes/DeepL4Delphi
 * [DeveloppeurPascal/DelphiBooks-WebSite](https://github.com/DeveloppeurPascal/DelphiBooks-WebSite) doit être dans le sous-dossier ./lib-externes/DelphiBooks-WebSite
 * [DeveloppeurPascal/libraries](https://github.com/DeveloppeurPascal/librairies) doit être dans le sous-dossier ./lib-externes/librairies
 
