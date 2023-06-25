@@ -4,8 +4,8 @@
         <ProjectVersion>19.5</ProjectVersion>
         <FrameworkType>FMX</FrameworkType>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Release</Config>
-        <Platform Condition="'$(Platform)'==''">OSXARM64</Platform>
+        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Platform Condition="'$(Platform)'==''">Win64</Platform>
         <TargetedPlatforms>135170</TargetedPlatforms>
         <AppType>Application</AppType>
         <MainSource>DelphiBooksAdmin.dpr</MainSource>
@@ -433,6 +433,7 @@
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="..\..\lib-externes\DeepL4Delphi\src\OlfSoftware.DeepL.ClientLib.pas"/>
+        <DCCReference Include="..\..\lib-externes\DelphiBooks-Common\src\DelphiBooks.Classes.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -570,6 +571,12 @@
                 </DeployFile>
                 <DeployFile LocalName="Win32\Debug\DelphiBooksAdmin.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployFile LocalName="Win64\Debug\DelphiBooksAdmin.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win64">
+                        <RemoteName>DelphiBooksAdmin.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Win64\Release\DelphiBooksAdmin.exe" Configuration="Release" Class="ProjectOutput">
                     <Platform Name="Win64">
                         <RemoteName>DelphiBooksAdmin.exe</RemoteName>
                         <Overwrite>true</Overwrite>

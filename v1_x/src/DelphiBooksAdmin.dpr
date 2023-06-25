@@ -21,7 +21,8 @@ uses
   uCheminDeStockage in 'uCheminDeStockage.pas',
   fChoixPhotos in 'fChoixPhotos.pas' {frmChoixPhotos},
   fGenerationSite in 'fGenerationSite.pas' {frmGenerationSite},
-  OlfSoftware.DeepL.ClientLib in '..\..\lib-externes\DeepL4Delphi\src\OlfSoftware.DeepL.ClientLib.pas';
+  OlfSoftware.DeepL.ClientLib in '..\..\lib-externes\DeepL4Delphi\src\OlfSoftware.DeepL.ClientLib.pas',
+  DelphiBooks.Classes in '..\..\lib-externes\DelphiBooks-Common\src\DelphiBooks.Classes.pas';
 
 {$R *.res}
 
