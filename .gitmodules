@@ -10,3 +10,6 @@
 [submodule "lib-externes/AboutDialog-Delphi-Component"]
 	path = lib-externes/AboutDialog-Delphi-Component
 	url = https://github.com/DeveloppeurPascal/AboutDialog-Delphi-Component.git
+[submodule "lib-externes/DelphiBooks-Common"]
+	path = lib-externes/DelphiBooks-Common
+	url = https://github.com/DeveloppeurPascal/DelphiBooks-Common.git
