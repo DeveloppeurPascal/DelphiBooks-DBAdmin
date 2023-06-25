@@ -18,6 +18,7 @@ To download this project you better should use "git" command but you also can do
 
 This project depends on :
 
+* [DeveloppeurPascal/AboutDialog-Delphi-Component](https://github.com/DeveloppeurPascal/AboutDialog-Delphi-Component) must be in ./lib-externes/AboutDialog-Delphi-Component subfolder
 * [DeveloppeurPascal/DeepL4Delphi](https://github.com/DeveloppeurPascal/DeepL4Delphi) must be in ./lib-externes/DeepL4Delphi subfolder
 * [DeveloppeurPascal/DelphiBooks-WebSite](https://github.com/DeveloppeurPascal/DelphiBooks-WebSite) must be in ./lib-externes/DelphiBooks-WebSite subfolder
 * [DeveloppeurPascal/librairies](https://github.com/DeveloppeurPascal/librairies) must be in ./lib-externes/librairies subfolder
