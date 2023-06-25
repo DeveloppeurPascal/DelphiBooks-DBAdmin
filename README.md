@@ -18,8 +18,7 @@ To download this project you better should use "git" command but you also can do
 
 This project depends on :
 
-* project 1
-* project 2
+* [DeveloppeurPascal/DelphiBooks-WebSite](https://github.com/DeveloppeurPascal/DelphiBooks-WebSite) must be in ./lib-externes/DelphiBooks-WebSite subfolder
 
 ## How to ask a new feature, report a bug or a security issue ?
 

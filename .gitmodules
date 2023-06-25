@@ -1,0 +1,3 @@
+[submodule "lib-externes/DelphiBooks-WebSite"]
+	path = lib-externes/DelphiBooks-WebSite
+	url = https://github.com/DeveloppeurPascal/DelphiBooks-WebSite.git
