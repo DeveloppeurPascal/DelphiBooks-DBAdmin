@@ -434,6 +434,7 @@
         </DCCReference>
         <DCCReference Include="..\..\lib-externes\DeepL4Delphi\src\OlfSoftware.DeepL.ClientLib.pas"/>
         <DCCReference Include="..\..\lib-externes\DelphiBooks-Common\src\DelphiBooks.Classes.pas"/>
+        <DCCReference Include="..\..\lib-externes\DelphiBooks-Common\src\DelphiBooks.DB.Repository.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -573,6 +574,12 @@
                 <DeployFile LocalName="Win64\Debug\DelphiBooksAdmin.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win64">
                         <RemoteName>DelphiBooksAdmin.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Win64\Debug\DelphiBooksAdmin.rsm" Configuration="Debug" Class="DebugSymbols">
+                    <Platform Name="Win64">
+                        <RemoteName>DelphiBooksAdmin.rsm</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
