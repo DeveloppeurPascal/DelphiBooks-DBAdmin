@@ -3,7 +3,7 @@ object frmMain: TfrmMain
   Top = 0
   BorderStyle = Single
   Caption = 'Delphi Books Admin'
-  ClientHeight = 544
+  ClientHeight = 596
   ClientWidth = 640
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -129,7 +129,6 @@ object frmMain: TfrmMain
     Size.PlatformDefault = False
     TabOrder = 8
     Text = 'Synchro de la base de donn'#233'es'
-    OnClick = btnSynchroDBClick
   end
   object btnFermer: TButton
     Align = Top
@@ -139,11 +138,11 @@ object frmMain: TfrmMain
     Margins.Right = 5.000000000000000000
     Margins.Bottom = 5.000000000000000000
     Position.X = 5.000000000000000000
-    Position.Y = 491.000000000000000000
+    Position.Y = 545.000000000000000000
     Size.Width = 630.000000000000000000
     Size.Height = 44.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 9
+    TabOrder = 10
     Text = 'Fermer'
     OnClick = btnFermerClick
   end
@@ -161,5 +160,21 @@ object frmMain: TfrmMain
     TabOrder = 6
     Text = 'Backup DB'
     OnClick = btnSauvegardeDeLaBaseDeDonneesClick
+  end
+  object btnExportToRepository: TButton
+    Align = Top
+    Cancel = True
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 491.000000000000000000
+    Size.Width = 630.000000000000000000
+    Size.Height = 44.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 9
+    Text = 'SQLite to Repository database'
+    OnClick = btnExportToRepositoryClick
   end
 end
