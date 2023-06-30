@@ -100,12 +100,11 @@ var
   shortb: TDelphiBooksBookShort;
   d: TDelphiBooksDescription;
   toc: TDelphiBooksTableOfContent;
+  l: TDelphiBooksLanguage;
 begin
 {$IFDEF MACOS}
   DBRepository := TDelphiBooksDatabase.Create;
   try
-
-    // TODO : export "langues" table
 
     // ******************************
     // Authors
@@ -340,6 +339,30 @@ begin
             p.Books.Add(shortb);
           end;
         end;
+        qrytab.Next;
+      end;
+    finally
+      qrytab.Close;
+    end;
+
+    // ******************************
+    // Languages
+
+    qrytab := tfdquery.Create(Self);
+    try
+      qrytab.Connection := dmBaseDeDonnees.DB;
+      sql := 'select * from langues';
+      qrytab.Open(sql);
+      qrytab.First;
+      while not qrytab.eof do
+      begin
+        l := TDelphiBooksLanguage.Create;
+        l.setid(qrytab.FieldByName('code').AsInteger);
+        l.Text := qrytab.FieldByName('libelle').AsString;
+        l.LanguageISOCode := qrytab.FieldByName('code_iso').AsString;
+        l.PageName := qrytab.FieldByName('nom_page').AsString;
+
+        DBRepository.Languages.Add(l);
         qrytab.Next;
       end;
     finally
