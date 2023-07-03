@@ -334,8 +334,8 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="fAuthors.pas">
-            <Form>frmAuthors</Form>
+        <DCCReference Include="fBooks.pas">
+            <Form>frmBooks</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="..\lib-externes\DelphiBooks-Common\src\DelphiBooks.Tools.pas"/>
@@ -345,6 +345,10 @@
         </DCCReference>
         <DCCReference Include="fPublishers.pas">
             <Form>frmPublishers</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="fAuthors.pas">
+            <Form>frmAuthors</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
