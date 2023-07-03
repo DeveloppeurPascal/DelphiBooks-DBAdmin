@@ -10,9 +10,10 @@ uses
   DelphiBooks.DB.Repository in '..\lib-externes\DelphiBooks-Common\src\DelphiBooks.DB.Repository.pas',
   u_urlOpen in '..\lib-externes\librairies\u_urlOpen.pas',
   uDMAboutBoxImage in 'uDMAboutBoxImage.pas' {DMAboutBoxImage: TDataModule},
-  fPublishers in 'fPublishers.pas' {frmPublishers},
+  fAuthors in 'fAuthors.pas' {frmAuthors},
   DelphiBooks.Tools in '..\lib-externes\DelphiBooks-Common\src\DelphiBooks.Tools.pas',
-  fLanguages in 'fLanguages.pas' {frmLanguages};
+  fLanguages in 'fLanguages.pas' {frmLanguages},
+  fPublishers in 'fPublishers.pas' {frmPublishers};
 
 {$R *.res}
 
