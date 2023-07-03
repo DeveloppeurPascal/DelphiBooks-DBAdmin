@@ -18,3 +18,21 @@ Work on DBAdmin v2.0
 * added "save and exit" and "cancel" buttons on the languages CRUD form
 * filled the list in Languages form
 * finished the languages CRUD form
+
+* added a search field on the list view (fLanguages.pas)
+* added shortcuts for 'Save' and 'Close'/'Cancel' buttons (fLanguages.pas)
+* added some TODOs (fLanguages.pas)
+
+* added fPublishers.pas unit to the project
+* added fPublishers.pas unit for publishers CRUD operations by copying fLanguages.pas unit
+* call frmPublishers form from main form
+
+* added fAuthors.pas unit to the project
+* call frmAuthors form from main form
+* added fAuthors.pas unit for authors CRUD operations by copying fPublishers.pas unit
+
+* added fBooks.pas unit to the project
+* call frmBooks form from main form
+* added fBooks.pas unit for authors CRUD operations by copying fAuthors.pas unit
+
+* changed version number display in main form title bar
