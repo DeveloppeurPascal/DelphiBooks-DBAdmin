@@ -59,7 +59,8 @@ uses
   System.IOUtils,
   u_urlOpen,
   fLanguages,
-  fPublishers;
+  fPublishers,
+  fAuthors;
 
 procedure TfrmMain.btnAboutClick(Sender: TObject);
 begin
@@ -67,8 +68,15 @@ begin
 end;
 
 procedure TfrmMain.btnAuthorsClick(Sender: TObject);
+var
+  f: TfrmAuthors;
 begin
-  // TODO : à compléter
+  f := TfrmAuthors.CreateWithDB(self, DB);
+  try
+    f.ShowModal;
+  finally
+    f.Free;
+  end;
 end;
 
 procedure TfrmMain.btnBooksClick(Sender: TObject);
