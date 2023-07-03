@@ -1,5 +1,6 @@
 unit fLanguages;
 
+// TODO : add a DELETE feature
 interface
 
 uses
@@ -22,7 +23,8 @@ uses
   FMX.StdCtrls,
   FMX.Layouts,
   FMX.ListView,
-  FMX.TabControl, FMX.Edit;
+  FMX.TabControl,
+  FMX.Edit;
 
 type
   TfrmLanguages = class(TForm)
@@ -71,7 +73,8 @@ implementation
 {$R *.fmx}
 
 uses
-  FMX.DialogService, DelphiBooks.Tools;
+  FMX.DialogService,
+  DelphiBooks.Tools;
 
 { TfrmLanguages }
 

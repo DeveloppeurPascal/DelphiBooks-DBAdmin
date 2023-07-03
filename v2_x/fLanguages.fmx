@@ -35,6 +35,8 @@ object frmLanguages: TfrmLanguages
       StyleLookup = ''
       TabOrder = 0
       Text = 'tiList'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
       object ListView1: TListView
         ItemAppearanceClassName = 'TImageListItemBottomDetailRightButtonAppearance'
         ItemEditAppearanceClassName = 'TImageListItemBottomDetailRightButtonShowCheckAppearance'
@@ -52,6 +54,7 @@ object frmLanguages: TfrmLanguages
         TabOrder = 1
         CanSwipeDelete = False
         OnButtonClick = ListView1ButtonClick
+        SearchVisible = True
       end
       object GridPanelLayout1: TGridPanelLayout
         Align = Bottom
@@ -92,7 +95,7 @@ object frmLanguages: TfrmLanguages
           Size.Height = 48.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          Text = 'Save and exit'
+          Text = '&Save and exit'
           OnClick = btnSaveAndExitClick
         end
         object btnCancel: TButton
@@ -106,7 +109,7 @@ object frmLanguages: TfrmLanguages
           Size.Height = 48.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
-          Text = 'Cancel'
+          Text = '&Cancel'
           OnClick = btnCancelClick
         end
       end
@@ -143,6 +146,8 @@ object frmLanguages: TfrmLanguages
       StyleLookup = ''
       TabOrder = 0
       Text = 'tiEdit'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
       object VertScrollBox1: TVertScrollBox
         Align = Client
         Size.Width = 640.000000000000000000
@@ -276,7 +281,7 @@ object frmLanguages: TfrmLanguages
           Size.Height = 48.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          Text = 'Save'
+          Text = '&Save'
           OnClick = btnItemSaveClick
         end
         object btnItemCancel: TButton
@@ -289,7 +294,7 @@ object frmLanguages: TfrmLanguages
           Size.Height = 48.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
-          Text = 'Cancel'
+          Text = '&Cancel'
           OnClick = btnItemCancelClick
         end
       end
