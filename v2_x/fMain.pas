@@ -58,7 +58,8 @@ implementation
 uses
   System.IOUtils,
   u_urlOpen,
-  fLanguages;
+  fLanguages,
+  fPublishers;
 
 procedure TfrmMain.btnAboutClick(Sender: TObject);
 begin
@@ -93,8 +94,15 @@ begin
 end;
 
 procedure TfrmMain.btnPublishersClick(Sender: TObject);
+var
+  f: TfrmPublishers;
 begin
-  // TODO : à compléter
+  f := TfrmPublishers.CreateWithDB(self, DB);
+  try
+    f.ShowModal;
+  finally
+    f.Free;
+  end;
 end;
 
 procedure TfrmMain.FormCreate(Sender: TObject);
