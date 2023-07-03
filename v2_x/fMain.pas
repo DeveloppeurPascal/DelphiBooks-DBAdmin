@@ -124,8 +124,8 @@ end;
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
   OlfAboutDialog1.Titre := caption;
-  caption := caption + ' ' + trim(OlfAboutDialog1.VersionNumero + ' ' +
-    OlfAboutDialog1.VersionDate);
+  caption := caption + ' v' + OlfAboutDialog1.VersionNumero + ' - ' +
+    OlfAboutDialog1.VersionDate;
   btnLanguages.Enabled := false;
   btnAuthors.Enabled := false;
   btnPublishers.Enabled := false;
