@@ -24,7 +24,8 @@ uses
   FMX.StdCtrls,
   FMX.Layouts,
   FMX.ListView,
-  FMX.TabControl, FMX.Edit;
+  FMX.TabControl,
+  FMX.Edit;
 
 type
   TfrmAuthors = class(TForm)
