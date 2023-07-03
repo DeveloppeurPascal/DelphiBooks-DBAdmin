@@ -1,0 +1,298 @@
+object frmLanguages: TfrmLanguages
+  Left = 0
+  Top = 0
+  Caption = 'Languages'
+  ClientHeight = 480
+  ClientWidth = 640
+  Position = MainFormCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnCloseQuery = FormCloseQuery
+  DesignerMasterStyle = 0
+  object TabControl1: TTabControl
+    Align = Client
+    Size.Width = 640.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    TabIndex = 0
+    TabOrder = 0
+    TabPosition = None
+    Sizes = (
+      640s
+      480s
+      640s
+      480s)
+    object tiList: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'tiList'
+      object ListView1: TListView
+        ItemAppearanceClassName = 'TImageListItemBottomDetailRightButtonAppearance'
+        ItemEditAppearanceClassName = 'TImageListItemBottomDetailRightButtonShowCheckAppearance'
+        HeaderAppearanceClassName = 'TListHeaderObjects'
+        FooterAppearanceClassName = 'TListHeaderObjects'
+        AlternatingColors = True
+        Align = Client
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Size.Width = 620.000000000000000000
+        Size.Height = 324.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        CanSwipeDelete = False
+        OnButtonClick = ListView1ButtonClick
+      end
+      object GridPanelLayout1: TGridPanelLayout
+        Align = Bottom
+        Position.Y = 412.000000000000000000
+        Size.Width = 640.000000000000000000
+        Size.Height = 68.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        ColumnCollection = <
+          item
+            Value = 50.000000000000000000
+          end
+          item
+            Value = 50.000000000000000000
+          end>
+        ControlCollection = <
+          item
+            Column = 0
+            Control = btnSaveAndExit
+            Row = 0
+          end
+          item
+            Column = 1
+            Control = btnCancel
+            Row = 0
+          end>
+        RowCollection = <
+          item
+            Value = 100.000000000000000000
+          end>
+        object btnSaveAndExit: TButton
+          Align = Client
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Size.Width = 300.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Text = 'Save and exit'
+          OnClick = btnSaveAndExitClick
+        end
+        object btnCancel: TButton
+          Align = Client
+          Cancel = True
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Size.Width = 300.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          Text = 'Cancel'
+          OnClick = btnCancelClick
+        end
+      end
+      object ToolBar1: TToolBar
+        Size.Width = 640.000000000000000000
+        Size.Height = 68.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        object btnAdd: TButton
+          Align = Right
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Position.X = 550.000000000000000000
+          Position.Y = 10.000000000000000000
+          Size.Width = 80.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Text = 'Add'
+          OnClick = btnAddClick
+        end
+      end
+    end
+    object tiEdit: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'tiEdit'
+      object VertScrollBox1: TVertScrollBox
+        Align = Client
+        Size.Width = 640.000000000000000000
+        Size.Height = 412.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Viewport.Width = 640.000000000000000000
+        Viewport.Height = 412.000000000000000000
+        object lblText: TLabel
+          Align = Top
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 10.000000000000000000
+          Size.Width = 620.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Name'
+          TabOrder = 0
+        end
+        object edtText: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = Top
+          TabOrder = 1
+          Position.X = 10.000000000000000000
+          Position.Y = 37.000000000000000000
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Size.Width = 620.000000000000000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+          OnChange = edtTextChange
+        end
+        object lblISOCode: TLabel
+          Align = Top
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 79.000000000000000000
+          Size.Width = 620.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'ISO code (2 letters)'
+          TabOrder = 2
+        end
+        object edtISOCode: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = Top
+          TabOrder = 3
+          Position.X = 10.000000000000000000
+          Position.Y = 106.000000000000000000
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Size.Width = 620.000000000000000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+        end
+        object lblPageName: TLabel
+          Align = Top
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 148.000000000000000000
+          Size.Width = 620.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Page name'
+          TabOrder = 4
+        end
+        object edtPageName: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = Top
+          TabOrder = 5
+          Position.X = 10.000000000000000000
+          Position.Y = 175.000000000000000000
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Size.Width = 620.000000000000000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+        end
+      end
+      object GridPanelLayout2: TGridPanelLayout
+        Align = Bottom
+        Position.Y = 412.000000000000000000
+        Size.Width = 640.000000000000000000
+        Size.Height = 68.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        ColumnCollection = <
+          item
+            Value = 50.000000000000000000
+          end
+          item
+            Value = 50.000000000000000000
+          end>
+        ControlCollection = <
+          item
+            Column = 0
+            Control = btnItemSave
+            Row = 0
+          end
+          item
+            Column = 1
+            Control = btnItemCancel
+            Row = 0
+          end>
+        RowCollection = <
+          item
+            Value = 100.000000000000000000
+          end>
+        object btnItemSave: TButton
+          Align = Client
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Size.Width = 300.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Text = 'Save'
+          OnClick = btnItemSaveClick
+        end
+        object btnItemCancel: TButton
+          Align = Client
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Size.Width = 300.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          Text = 'Cancel'
+          OnClick = btnItemCancelClick
+        end
+      end
+    end
+  end
+end
