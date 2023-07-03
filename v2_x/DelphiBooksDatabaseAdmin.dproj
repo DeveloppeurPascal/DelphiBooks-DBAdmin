@@ -334,11 +334,15 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
+        <DCCReference Include="fPublishers.pas">
+            <Form>frmPublishers</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="..\lib-externes\DelphiBooks-Common\src\DelphiBooks.Tools.pas"/>
         <DCCReference Include="fLanguages.pas">
             <Form>frmLanguages</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="..\lib-externes\DelphiBooks-Common\src\DelphiBooks.Tools.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
