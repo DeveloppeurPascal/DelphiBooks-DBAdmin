@@ -6,6 +6,7 @@ unit fBooks;
 // TODO : add the CRUD for books DESCRIPTIONS
 // TODO : add the CRUD for books TABLE OF CONTENT
 // TODO : add the CRUD for books KEYWORDS
+// TODO : add the CRUD for books cover image
 
 interface
 
