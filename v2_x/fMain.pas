@@ -60,7 +60,8 @@ uses
   u_urlOpen,
   fLanguages,
   fPublishers,
-  fAuthors;
+  fAuthors,
+  fBooks;
 
 procedure TfrmMain.btnAboutClick(Sender: TObject);
 begin
@@ -80,8 +81,15 @@ begin
 end;
 
 procedure TfrmMain.btnBooksClick(Sender: TObject);
+var
+  f: Tfrmbooks;
 begin
-  // TODO : à compléter
+  f := Tfrmbooks.CreateWithDB(self, DB);
+  try
+    f.ShowModal;
+  finally
+    f.Free;
+  end;
 end;
 
 procedure TfrmMain.btnCloseClick(Sender: TObject);
