@@ -1,0 +1,118 @@
+object frmMain: TfrmMain
+  Left = 0
+  Top = 0
+  Caption = 'Delphi Books Database Admin'
+  ClientHeight = 412
+  ClientWidth = 640
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object OlfAboutDialog1: TOlfAboutDialog
+    VersionNumero = '2.0'
+    VersionDate = '20230703'
+    MultiResBitmap = <
+      item
+      end>
+    Images = DMAboutBoxImage.ImageList1
+    ImageIndex = 0
+    URL = 'https://delphi-books.com'
+    onURLClick = OlfAboutDialog1URLClick
+    Langue = EN
+    Left = 48
+    Top = 24
+  end
+  object btnAbout: TButton
+    Align = Top
+    Margins.Left = 10.000000000000000000
+    Margins.Top = 10.000000000000000000
+    Margins.Right = 10.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Position.X = 10.000000000000000000
+    Position.Y = 10.000000000000000000
+    Size.Width = 620.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 6
+    Text = 'Ab&out this program'
+    OnClick = btnAboutClick
+  end
+  object btnClose: TButton
+    Align = Top
+    Cancel = True
+    Margins.Left = 10.000000000000000000
+    Margins.Top = 10.000000000000000000
+    Margins.Right = 10.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Position.X = 10.000000000000000000
+    Position.Y = 350.000000000000000000
+    Size.Width = 620.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    Text = '&Close'
+    OnClick = btnCloseClick
+  end
+  object btnBooks: TButton
+    Align = Top
+    Margins.Left = 10.000000000000000000
+    Margins.Top = 10.000000000000000000
+    Margins.Right = 10.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Position.X = 10.000000000000000000
+    Position.Y = 282.000000000000000000
+    Size.Width = 620.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    Text = '&Books'
+    OnClick = btnBooksClick
+  end
+  object btnPublishers: TButton
+    Align = Top
+    Margins.Left = 10.000000000000000000
+    Margins.Top = 10.000000000000000000
+    Margins.Right = 10.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Position.X = 10.000000000000000000
+    Position.Y = 214.000000000000000000
+    Size.Width = 620.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Text = '&Publishers'
+    OnClick = btnPublishersClick
+  end
+  object btnAuthors: TButton
+    Align = Top
+    Margins.Left = 10.000000000000000000
+    Margins.Top = 10.000000000000000000
+    Margins.Right = 10.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Position.X = 10.000000000000000000
+    Position.Y = 146.000000000000000000
+    Size.Width = 620.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    Text = '&Authors'
+    OnClick = btnAuthorsClick
+  end
+  object btnLanguages: TButton
+    Align = Top
+    Margins.Left = 10.000000000000000000
+    Margins.Top = 10.000000000000000000
+    Margins.Right = 10.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Position.X = 10.000000000000000000
+    Position.Y = 78.000000000000000000
+    Size.Width = 620.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = '&Languages'
+    OnClick = btnLanguagesClick
+  end
+end
