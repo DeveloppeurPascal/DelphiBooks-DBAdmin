@@ -339,8 +339,8 @@
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="..\lib-externes\DelphiBooks-Common\src\DelphiBooks.Tools.pas"/>
-        <DCCReference Include="fLanguages.pas">
-            <Form>frmLanguages</Form>
+        <DCCReference Include="fDescriptions.pas">
+            <Form>frmDescriptions</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="fPublishers.pas">
@@ -349,6 +349,10 @@
         </DCCReference>
         <DCCReference Include="fAuthors.pas">
             <Form>frmAuthors</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="fLanguages.pas">
+            <Form>frmLanguages</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
