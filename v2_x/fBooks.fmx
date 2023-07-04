@@ -440,10 +440,10 @@ object frmBooks: TfrmBooks
           Margins.Right = 10.000000000000000000
           Margins.Bottom = 10.000000000000000000
           Size.Width = 300.000000000000000000
-          Size.Height = 52.543983459472660000
+          Size.Height = 47.319999694824220000
           Size.PlatformDefault = False
           TabOrder = 4
-          Text = '&Biography'
+          Text = '&Description'
           OnClick = btnDescriptionsClick
         end
         object btnTableOfContent: TButton
@@ -453,7 +453,7 @@ object frmBooks: TfrmBooks
           Margins.Right = 10.000000000000000000
           Margins.Bottom = 10.000000000000000000
           Size.Width = 300.000000000000000000
-          Size.Height = 52.543983459472660000
+          Size.Height = 47.319999694824220000
           Size.PlatformDefault = False
           TabOrder = 3
           Text = '&Table of content'
@@ -466,7 +466,7 @@ object frmBooks: TfrmBooks
           Margins.Right = 10.000000000000000000
           Margins.Bottom = 10.000000000000000000
           Size.Width = 300.000000000000000000
-          Size.Height = 42.096015930175780000
+          Size.Height = 47.319999694824220000
           Size.PlatformDefault = False
           TabOrder = 1
           Text = '&Authors'
@@ -479,7 +479,7 @@ object frmBooks: TfrmBooks
           Margins.Right = 10.000000000000000000
           Margins.Bottom = 10.000000000000000000
           Size.Width = 300.000000000000000000
-          Size.Height = 42.096015930175780000
+          Size.Height = 47.319999694824220000
           Size.PlatformDefault = False
           TabOrder = 0
           Text = '&Publishers'
