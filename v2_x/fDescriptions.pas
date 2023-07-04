@@ -100,7 +100,6 @@ end;
 procedure TfrmDescriptions.btnItemSaveClick(Sender: TObject);
 var
   d: TDelphiBooksDescription;
-  s: string;
 begin
   if TabControl1.ActiveTab <> tiEdit then
     exit;
