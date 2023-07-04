@@ -1,7 +1,6 @@
 unit fAuthors;
 
 // TODO : add a DELETE feature
-// TODO : add the CRUD for authors DESCRIPTIONS
 interface
 
 uses
@@ -52,6 +51,8 @@ type
     edtLastname: TEdit;
     lblFirstname: TLabel;
     edtFirstname: TEdit;
+    gplContextualMenu: TGridPanelLayout;
+    btnDescriptions: TButton;
     procedure btnSaveAndExitClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -61,9 +62,11 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnItemCancelClick(Sender: TObject);
     procedure btnItemSaveClick(Sender: TObject);
+    procedure btnDescriptionsClick(Sender: TObject);
   private
     { Déclarations privées }
     FDB: tdelphibooksdatabase;
+    function getCurrentAuthor: TDelphiBooksAuthor;
   public
     { Déclarations publiques }
     constructor CreateWithDB(AOwner: TComponent; ADB: tdelphibooksdatabase);
@@ -78,7 +81,8 @@ implementation
 
 uses
   FMX.DialogService,
-  DelphiBooks.Tools;
+  DelphiBooks.Tools,
+  fDescriptions;
 
 { TfrmAuthors }
 
@@ -100,6 +104,23 @@ begin
   Close;
 end;
 
+procedure TfrmAuthors.btnDescriptionsClick(Sender: TObject);
+var
+  f: TfrmDescriptions;
+  a: TDelphiBooksAuthor;
+begin
+  a := getCurrentAuthor;
+  if assigned(a) then
+  begin
+    f := TfrmDescriptions.CreateWithDescriptionsList(self, a.Descriptions, FDB);
+    try
+      f.ShowModal;
+    finally
+      f.Free;
+    end;
+  end;
+end;
+
 procedure TfrmAuthors.btnItemCancelClick(Sender: TObject);
 begin
   if TabControl1.ActiveTab <> tiEdit then
@@ -110,7 +131,7 @@ end;
 
 procedure TfrmAuthors.btnItemSaveClick(Sender: TObject);
 var
-  a: TDelphiBooksauthor;
+  a: TDelphiBooksAuthor;
   s: string;
 begin
   if TabControl1.ActiveTab <> tiEdit then
@@ -143,11 +164,7 @@ begin
     raise exception.Create('Invalid page name. It has been fixed.');
   end;
 
-  if assigned(ListView1.Selected) and assigned(ListView1.Selected.TagObject) and
-    (ListView1.Selected.TagObject is TDelphiBooksauthor) then
-    a := ListView1.Selected.TagObject as TDelphiBooksauthor
-  else
-    a := nil;
+  a := getCurrentAuthor;
 
   if not FDB.isPageNameUniq(edtPageName.Text, TDelphiBooksTable.authors, a) then
   begin
@@ -157,7 +174,7 @@ begin
 
   if not assigned(a) then
   begin
-    a := TDelphiBooksauthor.Create;
+    a := TDelphiBooksAuthor.Create;
     FDB.authors.Add(a);
   end;
   a.Firstname := edtFirstname.Text;
@@ -191,7 +208,7 @@ end;
 
 procedure TfrmAuthors.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 var
-  a: TDelphiBooksauthor;
+  a: TDelphiBooksAuthor;
   LCanClose: Boolean;
 begin
   for a in FDB.authors do
@@ -225,12 +242,13 @@ begin
   edtPseudo.Text := '';
   edtWebSite.Text := '';
   edtPageName.Text := '';
+  gplContextualMenu.Visible := false;
 end;
 
 procedure TfrmAuthors.ListView1ButtonClick(const Sender: TObject;
 const AItem: TListItem; const AObject: TListItemSimpleControl);
 var
-  a: TDelphiBooksauthor;
+  a: TDelphiBooksAuthor;
 begin
   if not assigned(AItem) then
     raise exception.Create('No item for this button !');
@@ -238,13 +256,13 @@ begin
   if not assigned(AItem.TagObject) then
     raise exception.Create('No object for this item !');
 
-  if not(AItem.TagObject is TDelphiBooksauthor) then
+  if not(AItem.TagObject is TDelphiBooksAuthor) then
     raise exception.Create('This item is not a author !');
 
   if (ListView1.Selected <> AItem) then
     raise exception.Create('Selected item is not this one !');
 
-  a := AItem.TagObject as TDelphiBooksauthor;
+  a := AItem.TagObject as TDelphiBooksAuthor;
 
   InitEdit;
   edtFirstname.Text := a.Firstname;
@@ -252,12 +270,13 @@ begin
   edtPseudo.Text := a.Pseudo;
   edtWebSite.Text := a.WebSiteURL;
   edtPageName.Text := a.PageName;
+  gplContextualMenu.Visible := true;
   TabControl1.Next;
 end;
 
 procedure TfrmAuthors.RefreshListView(AGuid: string);
 var
-  a: TDelphiBooksauthor;
+  a: TDelphiBooksAuthor;
   item: tlistviewitem;
 begin
   ListView1.BeginUpdate;
@@ -288,6 +307,15 @@ begin
     else
       edtPageName.Text :=
         tourl(Trim(edtFirstname.Text + ' ' + edtLastname.Text));
+end;
+
+function TfrmAuthors.getCurrentAuthor: TDelphiBooksAuthor;
+begin
+  if assigned(ListView1.Selected) and assigned(ListView1.Selected.TagObject) and
+    (ListView1.Selected.TagObject is TDelphiBooksAuthor) then
+    result := ListView1.Selected.TagObject as TDelphiBooksAuthor
+  else
+    result := nil;
 end;
 
 initialization
