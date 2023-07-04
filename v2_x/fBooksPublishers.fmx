@@ -84,6 +84,7 @@ object frmBooksPublishers: TfrmBooksPublishers
     Size.Height = 392.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 1
+    ItemAppearanceObjects.ItemObjects.Accessory.Visible = False
     SearchVisible = True
   end
   object Layout1: TLayout
@@ -146,6 +147,7 @@ object frmBooksPublishers: TfrmBooksPublishers
     Size.Height = 392.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 3
+    ItemAppearanceObjects.ItemObjects.Accessory.Visible = False
     SearchVisible = True
   end
 end
