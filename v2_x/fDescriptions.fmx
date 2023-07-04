@@ -4,7 +4,7 @@ object frmDescriptions: TfrmDescriptions
   Caption = 'Descriptions'
   ClientHeight = 480
   ClientWidth = 640
-  Position = MainFormCenter
+  Position = OwnerFormCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -189,8 +189,8 @@ object frmDescriptions: TfrmDescriptions
           Size.Height = 296.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 3
-          Viewport.Width = 616.000000000000000000
-          Viewport.Height = 292.000000000000000000
+          Viewport.Width = 620.000000000000000000
+          Viewport.Height = 296.000000000000000000
         end
       end
       object GridPanelLayout2: TGridPanelLayout
