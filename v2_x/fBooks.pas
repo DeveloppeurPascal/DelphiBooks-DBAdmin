@@ -1,7 +1,6 @@
 unit fBooks;
 
 // TODO : add a DELETE feature
-// TODO : add the CRUD for books AUTHORS
 // TODO : add the CRUD for books PUBLISHERS
 // TODO : add the CRUD for books KEYWORDS
 // TODO : add the CRUD for books cover image
@@ -61,6 +60,7 @@ type
     gplContextualMenu: TGridPanelLayout;
     btnDescriptions: TButton;
     btnTableOfContent: TButton;
+    btnBookAuthors: TButton;
     procedure btnSaveAndExitClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -73,6 +73,7 @@ type
     procedure edtTitleChange(Sender: TObject);
     procedure btnDescriptionsClick(Sender: TObject);
     procedure btnTableOfContentClick(Sender: TObject);
+    procedure btnBookAuthorsClick(Sender: TObject);
   private
     { Déclarations privées }
     FDB: tdelphibooksdatabase;
@@ -93,7 +94,8 @@ uses
   FMX.DialogService,
   DelphiBooks.Tools,
   fDescriptions,
-  fTablesOfContent;
+  fTablesOfContent,
+  fBooksAuthors;
 
 { Tfrmbooks }
 
@@ -105,6 +107,23 @@ begin
   ListView1.Selected := nil;
   InitEdit;
   TabControl1.Next;
+end;
+
+procedure TfrmBooks.btnBookAuthorsClick(Sender: TObject);
+var
+  f: TfrmBooksAuthors;
+  b: TDelphiBooksBook;
+begin
+  b := getCurrentBook;
+  if assigned(b) then
+  begin
+    f := TfrmBooksAuthors.CreateWithAuthors(self, b.Authors, FDB);
+    try
+      f.ShowModal;
+    finally
+      f.Free;
+    end;
+  end;
 end;
 
 procedure TfrmBooks.btnCancelClick(Sender: TObject);

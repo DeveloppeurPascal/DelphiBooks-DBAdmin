@@ -4,7 +4,7 @@ object frmBooks: TfrmBooks
   Caption = 'Books'
   ClientHeight = 668
   ClientWidth = 640
-  Position = MainFormCenter
+  Position = OwnerFormCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -405,13 +405,21 @@ object frmBooks: TfrmBooks
             Column = 0
             Control = btnTableOfContent
             Row = 1
+          end
+          item
+            Column = 0
+            Control = btnBookAuthors
+            Row = 2
           end>
         RowCollection = <
           item
-            Value = 50.000000000000000000
+            Value = 29.943521562419570000
           end
           item
-            Value = 50.000000000000000000
+            Value = 33.000000000000000000
+          end
+          item
+            Value = 37.056478437580420000
           end>
         object btnDescriptions: TButton
           Align = Client
@@ -420,9 +428,9 @@ object frmBooks: TfrmBooks
           Margins.Right = 10.000000000000000000
           Margins.Bottom = 5.000000000000000000
           Size.Width = 620.000000000000000000
-          Size.Height = 48.000000000000000000
+          Size.Height = 24.734485626220700000
           Size.PlatformDefault = False
-          TabOrder = 1
+          TabOrder = 2
           Text = '&Biography'
           OnClick = btnDescriptionsClick
         end
@@ -433,11 +441,24 @@ object frmBooks: TfrmBooks
           Margins.Right = 10.000000000000000000
           Margins.Bottom = 5.000000000000000000
           Size.Width = 620.000000000000000000
-          Size.Height = 48.000000000000000000
+          Size.Height = 28.279994964599610000
           Size.PlatformDefault = False
-          TabOrder = 0
+          TabOrder = 1
           Text = '&Table of content'
           OnClick = btnTableOfContentClick
+        end
+        object btnBookAuthors: TButton
+          Align = Client
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Size.Width = 620.000000000000000000
+          Size.Height = 32.985519409179690000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Text = '&Authors'
+          OnClick = btnBookAuthorsClick
         end
       end
     end
