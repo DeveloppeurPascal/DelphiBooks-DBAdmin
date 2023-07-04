@@ -1,0 +1,106 @@
+object frmBookCoverImage: TfrmBookCoverImage
+  Left = 0
+  Top = 0
+  Caption = 'Cover image for this book'
+  ClientHeight = 700
+  ClientWidth = 700
+  Position = OwnerFormCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object ImageViewer1: TImageViewer
+    Align = Client
+    Margins.Left = 10.000000000000000000
+    Margins.Top = 10.000000000000000000
+    Margins.Right = 10.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Size.Width = 680.000000000000000000
+    Size.Height = 544.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Viewport.Width = 676.000000000000000000
+    Viewport.Height = 540.000000000000000000
+  end
+  object btnChange: TButton
+    Align = Bottom
+    Margins.Left = 10.000000000000000000
+    Margins.Top = 10.000000000000000000
+    Margins.Right = 10.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Position.X = 10.000000000000000000
+    Position.Y = 574.000000000000000000
+    Size.Width = 680.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Change p&icture'
+    OnClick = btnChangeClick
+  end
+  object GridPanelLayout1: TGridPanelLayout
+    Align = MostBottom
+    Position.Y = 632.000000000000000000
+    Size.Width = 700.000000000000000000
+    Size.Height = 68.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    ColumnCollection = <
+      item
+        Value = 50.000000000000000000
+      end
+      item
+        Value = 50.000000000000000000
+      end>
+    ControlCollection = <
+      item
+        Column = 0
+        Control = btnSaveAndExit
+        Row = 0
+      end
+      item
+        Column = 1
+        Control = btnCancel
+        Row = 0
+      end>
+    RowCollection = <
+      item
+        Value = 100.000000000000000000
+      end>
+    object btnSaveAndExit: TButton
+      Align = Client
+      Default = True
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Size.Width = 330.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = '&Save and exit'
+      OnClick = btnSaveAndExitClick
+    end
+    object btnCancel: TButton
+      Align = Client
+      Cancel = True
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Size.Width = 330.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = '&Cancel'
+      OnClick = btnCancelClick
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Filter = 
+      'Images (jpg, jpeg, png, gif)|*.jpg;*.jpeg;*.png;*.gif|Images JPE' +
+      'G|*.jpg;*.jpeg|Images PNG|*.png|Images GIF|*.gif'
+    Options = [ofPathMustExist, ofFileMustExist, ofEnableSizing]
+    Left = 304
+    Top = 224
+  end
+end

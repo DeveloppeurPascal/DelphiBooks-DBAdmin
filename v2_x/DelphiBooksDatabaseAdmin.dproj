@@ -367,6 +367,10 @@
             <Form>frmBooksAuthors</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="fBookCoverImage.pas">
+            <Form>frmBookCoverImage</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

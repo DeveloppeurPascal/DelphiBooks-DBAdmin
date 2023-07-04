@@ -18,7 +18,8 @@ uses
   fLanguages in 'fLanguages.pas' {frmLanguages},
   fDescriptions in 'fDescriptions.pas' {frmDescriptions},
   fBooksPublishers in 'fBooksPublishers.pas' {frmBooksPublishers},
-  fBooksAuthors in 'fBooksAuthors.pas' {frmBooksAuthors};
+  fBooksAuthors in 'fBooksAuthors.pas' {frmBooksAuthors},
+  fBookCoverImage in 'fBookCoverImage.pas' {frmBookCoverImage};
 
 {$R *.res}
 
