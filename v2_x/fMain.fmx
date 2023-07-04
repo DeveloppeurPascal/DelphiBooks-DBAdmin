@@ -12,7 +12,7 @@ object frmMain: TfrmMain
   DesignerMasterStyle = 0
   object OlfAboutDialog1: TOlfAboutDialog
     VersionNumero = '2.0'
-    VersionDate = '20230703'
+    VersionDate = '20230704'
     MultiResBitmap = <
       item
       end>
