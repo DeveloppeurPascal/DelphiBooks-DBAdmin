@@ -3,8 +3,6 @@ unit fBooks;
 // TODO : add a DELETE feature
 // TODO : add the CRUD for books AUTHORS
 // TODO : add the CRUD for books PUBLISHERS
-// TODO : add the CRUD for books DESCRIPTIONS
-// TODO : add the CRUD for books TABLE OF CONTENT
 // TODO : add the CRUD for books KEYWORDS
 // TODO : add the CRUD for books cover image
 
@@ -60,6 +58,9 @@ type
     edtTitle: TEdit;
     lblISBN13: TLabel;
     edtISBN13: TEdit;
+    gplContextualMenu: TGridPanelLayout;
+    btnDescriptions: TButton;
+    btnTableOfContent: TButton;
     procedure btnSaveAndExitClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -70,9 +71,12 @@ type
     procedure btnItemCancelClick(Sender: TObject);
     procedure btnItemSaveClick(Sender: TObject);
     procedure edtTitleChange(Sender: TObject);
+    procedure btnDescriptionsClick(Sender: TObject);
+    procedure btnTableOfContentClick(Sender: TObject);
   private
     { Déclarations privées }
     FDB: tdelphibooksdatabase;
+    function getCurrentBook: TDelphiBooksBook;
   public
     { Déclarations publiques }
     constructor CreateWithDB(AOwner: TComponent; ADB: tdelphibooksdatabase);
@@ -87,7 +91,9 @@ implementation
 
 uses
   FMX.DialogService,
-  DelphiBooks.Tools;
+  DelphiBooks.Tools,
+  fDescriptions,
+  fTablesOfContent;
 
 { Tfrmbooks }
 
@@ -109,6 +115,23 @@ begin
   Close;
 end;
 
+procedure TfrmBooks.btnDescriptionsClick(Sender: TObject);
+var
+  f: TfrmDescriptions;
+  b: TDelphiBooksBook;
+begin
+  b := getCurrentBook;
+  if assigned(b) then
+  begin
+    f := TfrmDescriptions.CreateWithDescriptionsList(self, b.Descriptions, FDB);
+    try
+      f.ShowModal;
+    finally
+      f.Free;
+    end;
+  end;
+end;
+
 procedure TfrmBooks.btnItemCancelClick(Sender: TObject);
 begin
   if TabControl1.ActiveTab <> tiEdit then
@@ -119,7 +142,7 @@ end;
 
 procedure TfrmBooks.btnItemSaveClick(Sender: TObject);
 var
-  b: TDelphiBooksbook;
+  b: TDelphiBooksBook;
   s: string;
 begin
   if TabControl1.ActiveTab <> tiEdit then
@@ -160,11 +183,7 @@ begin
     raise exception.Create('Invalid page name. It has been fixed.');
   end;
 
-  if assigned(ListView1.Selected) and assigned(ListView1.Selected.TagObject) and
-    (ListView1.Selected.TagObject is TDelphiBooksbook) then
-    b := ListView1.Selected.TagObject as TDelphiBooksbook
-  else
-    b := nil;
+  b := getCurrentBook;
 
   if not FDB.isPageNameUniq(edtPageName.Text, TDelphiBooksTable.books, b) then
   begin
@@ -174,7 +193,7 @@ begin
 
   if not assigned(b) then
   begin
-    b := TDelphiBooksbook.Create;
+    b := TDelphiBooksBook.Create;
     FDB.books.Add(b);
   end;
   b.Title := edtTitle.Text;
@@ -196,6 +215,23 @@ begin
   Close;
 end;
 
+procedure TfrmBooks.btnTableOfContentClick(Sender: TObject);
+var
+  f: TfrmTablesOfContent;
+  b: TDelphiBooksBook;
+begin
+  b := getCurrentBook;
+  if assigned(b) then
+  begin
+    f := TfrmTablesOfContent.CreateWithTableOfContentsList(self, b.TOCs, FDB);
+    try
+      f.ShowModal;
+    finally
+      f.Free;
+    end;
+  end;
+end;
+
 constructor TfrmBooks.CreateWithDB(AOwner: TComponent;
   ADB: tdelphibooksdatabase);
 begin
@@ -214,7 +250,7 @@ end;
 
 procedure TfrmBooks.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 var
-  b: TDelphiBooksbook;
+  b: TDelphiBooksBook;
   LCanClose: Boolean;
 begin
   for b in FDB.books do
@@ -241,6 +277,15 @@ begin
   RefreshListView;
 end;
 
+function TfrmBooks.getCurrentBook: TDelphiBooksBook;
+begin
+  if assigned(ListView1.Selected) and assigned(ListView1.Selected.TagObject) and
+    (ListView1.Selected.TagObject is TDelphiBooksBook) then
+    result := ListView1.Selected.TagObject as TDelphiBooksBook
+  else
+    result := nil;
+end;
+
 procedure TfrmBooks.InitEdit;
 begin
   edtTitle.Text := '';
@@ -254,7 +299,7 @@ end;
 procedure TfrmBooks.ListView1ButtonClick(const Sender: TObject;
 const AItem: TListItem; const AObject: TListItemSimpleControl);
 var
-  b: TDelphiBooksbook;
+  b: TDelphiBooksBook;
 begin
   if not assigned(AItem) then
     raise exception.Create('No item for this button !');
@@ -262,13 +307,13 @@ begin
   if not assigned(AItem.TagObject) then
     raise exception.Create('No object for this item !');
 
-  if not(AItem.TagObject is TDelphiBooksbook) then
+  if not(AItem.TagObject is TDelphiBooksBook) then
     raise exception.Create('This item is not a book !');
 
   if (ListView1.Selected <> AItem) then
     raise exception.Create('Selected item is not this one !');
 
-  b := AItem.TagObject as TDelphiBooksbook;
+  b := AItem.TagObject as TDelphiBooksBook;
 
   InitEdit;
   edtTitle.Text := b.Title;
@@ -282,7 +327,7 @@ end;
 
 procedure TfrmBooks.RefreshListView(AGuid: string);
 var
-  b: TDelphiBooksbook;
+  b: TDelphiBooksBook;
   item: tlistviewitem;
 begin
   ListView1.BeginUpdate;
