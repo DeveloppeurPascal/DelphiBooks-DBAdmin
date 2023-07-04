@@ -151,11 +151,11 @@ object frmBooks: TfrmBooks
       object VertScrollBox1: TVertScrollBox
         Align = Client
         Size.Width = 640.000000000000000000
-        Size.Height = 474.000000000000000000
+        Size.Height = 358.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
-        Viewport.Width = 640.000000000000000000
-        Viewport.Height = 474.000000000000000000
+        Viewport.Width = 624.000000000000000000
+        Viewport.Height = 358.000000000000000000
         object lblPubDate: TLabel
           Align = Top
           Margins.Left = 10.000000000000000000
@@ -164,7 +164,7 @@ object frmBooks: TfrmBooks
           Margins.Bottom = 5.000000000000000000
           Position.X = 10.000000000000000000
           Position.Y = 217.000000000000000000
-          Size.Width = 620.000000000000000000
+          Size.Width = 604.000000000000000000
           Size.Height = 17.000000000000000000
           Size.PlatformDefault = False
           Text = 'Publication date (YYYYMMDD)'
@@ -180,7 +180,7 @@ object frmBooks: TfrmBooks
           Margins.Top = 5.000000000000000000
           Margins.Right = 10.000000000000000000
           Margins.Bottom = 10.000000000000000000
-          Size.Width = 620.000000000000000000
+          Size.Width = 604.000000000000000000
           Size.Height = 22.000000000000000000
           Size.PlatformDefault = False
         end
@@ -192,7 +192,7 @@ object frmBooks: TfrmBooks
           Margins.Bottom = 5.000000000000000000
           Position.X = 10.000000000000000000
           Position.Y = 286.000000000000000000
-          Size.Width = 620.000000000000000000
+          Size.Width = 604.000000000000000000
           Size.Height = 17.000000000000000000
           Size.PlatformDefault = False
           Text = 'Site URL (http://xxx or https://xxx)'
@@ -208,7 +208,7 @@ object frmBooks: TfrmBooks
           Margins.Top = 5.000000000000000000
           Margins.Right = 10.000000000000000000
           Margins.Bottom = 10.000000000000000000
-          Size.Width = 620.000000000000000000
+          Size.Width = 604.000000000000000000
           Size.Height = 22.000000000000000000
           Size.PlatformDefault = False
         end
@@ -220,7 +220,7 @@ object frmBooks: TfrmBooks
           Margins.Bottom = 5.000000000000000000
           Position.X = 10.000000000000000000
           Position.Y = 355.000000000000000000
-          Size.Width = 620.000000000000000000
+          Size.Width = 604.000000000000000000
           Size.Height = 17.000000000000000000
           Size.PlatformDefault = False
           Text = 'Page name'
@@ -236,7 +236,7 @@ object frmBooks: TfrmBooks
           Margins.Top = 5.000000000000000000
           Margins.Right = 10.000000000000000000
           Margins.Bottom = 10.000000000000000000
-          Size.Width = 620.000000000000000000
+          Size.Width = 604.000000000000000000
           Size.Height = 22.000000000000000000
           Size.PlatformDefault = False
         end
@@ -248,7 +248,7 @@ object frmBooks: TfrmBooks
           Margins.Bottom = 5.000000000000000000
           Position.X = 10.000000000000000000
           Position.Y = 79.000000000000000000
-          Size.Width = 620.000000000000000000
+          Size.Width = 604.000000000000000000
           Size.Height = 17.000000000000000000
           Size.PlatformDefault = False
           Text = 'ISBN10'
@@ -264,7 +264,7 @@ object frmBooks: TfrmBooks
           Margins.Top = 5.000000000000000000
           Margins.Right = 10.000000000000000000
           Margins.Bottom = 10.000000000000000000
-          Size.Width = 620.000000000000000000
+          Size.Width = 604.000000000000000000
           Size.Height = 22.000000000000000000
           Size.PlatformDefault = False
         end
@@ -276,7 +276,7 @@ object frmBooks: TfrmBooks
           Margins.Bottom = 5.000000000000000000
           Position.X = 10.000000000000000000
           Position.Y = 10.000000000000000000
-          Size.Width = 620.000000000000000000
+          Size.Width = 604.000000000000000000
           Size.Height = 17.000000000000000000
           Size.PlatformDefault = False
           Text = 'Title'
@@ -292,7 +292,7 @@ object frmBooks: TfrmBooks
           Margins.Top = 5.000000000000000000
           Margins.Right = 10.000000000000000000
           Margins.Bottom = 10.000000000000000000
-          Size.Width = 620.000000000000000000
+          Size.Width = 604.000000000000000000
           Size.Height = 22.000000000000000000
           Size.PlatformDefault = False
           OnChange = edtTitleChange
@@ -305,7 +305,7 @@ object frmBooks: TfrmBooks
           Margins.Bottom = 5.000000000000000000
           Position.X = 10.000000000000000000
           Position.Y = 148.000000000000000000
-          Size.Width = 620.000000000000000000
+          Size.Width = 604.000000000000000000
           Size.Height = 17.000000000000000000
           Size.PlatformDefault = False
           Text = 'ISBN13 - GENCOD'
@@ -321,7 +321,7 @@ object frmBooks: TfrmBooks
           Margins.Top = 5.000000000000000000
           Margins.Right = 10.000000000000000000
           Margins.Bottom = 10.000000000000000000
-          Size.Width = 620.000000000000000000
+          Size.Width = 604.000000000000000000
           Size.Height = 22.000000000000000000
           Size.PlatformDefault = False
         end
@@ -386,9 +386,9 @@ object frmBooks: TfrmBooks
         Align = Bottom
         Margins.Top = 5.000000000000000000
         Margins.Bottom = 5.000000000000000000
-        Position.Y = 479.000000000000000000
+        Position.Y = 363.000000000000000000
         Size.Width = 640.000000000000000000
-        Size.Height = 116.000000000000000000
+        Size.Height = 232.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 2
         ColumnCollection = <
@@ -410,16 +410,24 @@ object frmBooks: TfrmBooks
             Column = 0
             Control = btnBookAuthors
             Row = 2
+          end
+          item
+            Column = 0
+            Control = brnBookPublishers
+            Row = 3
           end>
         RowCollection = <
           item
-            Value = 29.943521562419570000
+            Value = 35.976248071266980000
           end
           item
-            Value = 33.000000000000000000
+            Value = 28.023751928733030000
           end
           item
-            Value = 37.056478437580420000
+            Value = 16.000000000000000000
+          end
+          item
+            Value = 20.000000000000000000
           end>
         object btnDescriptions: TButton
           Align = Client
@@ -428,9 +436,9 @@ object frmBooks: TfrmBooks
           Margins.Right = 10.000000000000000000
           Margins.Bottom = 5.000000000000000000
           Size.Width = 620.000000000000000000
-          Size.Height = 24.734485626220700000
+          Size.Height = 73.464897155761720000
           Size.PlatformDefault = False
-          TabOrder = 2
+          TabOrder = 3
           Text = '&Biography'
           OnClick = btnDescriptionsClick
         end
@@ -441,9 +449,9 @@ object frmBooks: TfrmBooks
           Margins.Right = 10.000000000000000000
           Margins.Bottom = 5.000000000000000000
           Size.Width = 620.000000000000000000
-          Size.Height = 28.279994964599610000
+          Size.Height = 55.015113830566410000
           Size.PlatformDefault = False
-          TabOrder = 1
+          TabOrder = 2
           Text = '&Table of content'
           OnClick = btnTableOfContentClick
         end
@@ -454,11 +462,24 @@ object frmBooks: TfrmBooks
           Margins.Right = 10.000000000000000000
           Margins.Bottom = 5.000000000000000000
           Size.Width = 620.000000000000000000
-          Size.Height = 32.985519409179690000
+          Size.Height = 27.119995117187500000
           Size.PlatformDefault = False
-          TabOrder = 0
+          TabOrder = 1
           Text = '&Authors'
           OnClick = btnBookAuthorsClick
+        end
+        object brnBookPublishers: TButton
+          Align = Client
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Size.Width = 620.000000000000000000
+          Size.Height = 36.399993896484380000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Text = '&Publishers'
+          OnClick = brnBookPublishersClick
         end
       end
     end

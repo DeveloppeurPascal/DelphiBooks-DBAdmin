@@ -1,7 +1,6 @@
 unit fBooks;
 
 // TODO : add a DELETE feature
-// TODO : add the CRUD for books PUBLISHERS
 // TODO : add the CRUD for books KEYWORDS
 // TODO : add the CRUD for books cover image
 
@@ -61,6 +60,7 @@ type
     btnDescriptions: TButton;
     btnTableOfContent: TButton;
     btnBookAuthors: TButton;
+    brnBookPublishers: TButton;
     procedure btnSaveAndExitClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -74,6 +74,7 @@ type
     procedure btnDescriptionsClick(Sender: TObject);
     procedure btnTableOfContentClick(Sender: TObject);
     procedure btnBookAuthorsClick(Sender: TObject);
+    procedure brnBookPublishersClick(Sender: TObject);
   private
     { Déclarations privées }
     FDB: tdelphibooksdatabase;
@@ -95,9 +96,27 @@ uses
   DelphiBooks.Tools,
   fDescriptions,
   fTablesOfContent,
-  fBooksAuthors;
+  fBooksAuthors,
+  fBooksPublishers;
 
 { Tfrmbooks }
+
+procedure TfrmBooks.brnBookPublishersClick(Sender: TObject);
+var
+  f: TfrmBooksPublishers;
+  b: TDelphiBooksBook;
+begin
+  b := getCurrentBook;
+  if assigned(b) then
+  begin
+    f := TfrmBooksPublishers.CreateWithPublishers(self, b.Publishers, FDB);
+    try
+      f.ShowModal;
+    finally
+      f.Free;
+    end;
+  end;
+end;
 
 procedure TfrmBooks.btnAddClick(Sender: TObject);
 begin
