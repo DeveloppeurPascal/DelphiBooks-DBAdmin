@@ -1,7 +1,6 @@
 unit fPublishers;
 
 // TODO : add a DELETE feature
-// TODO : add the CRUD for publishers DESCRIPTIONS
 interface
 
 uses
@@ -48,6 +47,8 @@ type
     edtWebSite: TEdit;
     lblPageName: TLabel;
     edtPageName: TEdit;
+    gplContextualMenu: TGridPanelLayout;
+    btnDescriptions: TButton;
     procedure btnSaveAndExitClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -58,9 +59,11 @@ type
     procedure btnItemCancelClick(Sender: TObject);
     procedure btnItemSaveClick(Sender: TObject);
     procedure edtCompanyNameChange(Sender: TObject);
+    procedure btnDescriptionsClick(Sender: TObject);
   private
     { Déclarations privées }
     FDB: tdelphibooksdatabase;
+    function getCurrentPublisher: TDelphiBooksPublisher;
   public
     { Déclarations publiques }
     constructor CreateWithDB(AOwner: TComponent; ADB: tdelphibooksdatabase);
@@ -75,7 +78,8 @@ implementation
 
 uses
   FMX.DialogService,
-  DelphiBooks.Tools;
+  DelphiBooks.Tools,
+  fDescriptions;
 
 { TfrmPublishers }
 
@@ -95,6 +99,23 @@ begin
     exit;
 
   Close;
+end;
+
+procedure TfrmPublishers.btnDescriptionsClick(Sender: TObject);
+var
+  f: TfrmDescriptions;
+  p: TDelphiBooksPublisher;
+begin
+  p := getCurrentPublisher;
+  if assigned(p) then
+  begin
+    f := TfrmDescriptions.CreateWithDescriptionsList(self, p.Descriptions, FDB);
+    try
+      f.ShowModal;
+    finally
+      f.Free;
+    end;
+  end;
 end;
 
 procedure TfrmPublishers.btnItemCancelClick(Sender: TObject);
@@ -135,11 +156,7 @@ begin
     raise exception.Create('Invalid page name. It has been fixed.');
   end;
 
-  if assigned(ListView1.Selected) and assigned(ListView1.Selected.TagObject) and
-    (ListView1.Selected.TagObject is TDelphiBooksPublisher) then
-    p := ListView1.Selected.TagObject as TDelphiBooksPublisher
-  else
-    p := nil;
+  p := getCurrentPublisher;
 
   if not FDB.isPageNameUniq(edtPageName.Text, TDelphiBooksTable.Publishers, p)
   then
@@ -212,6 +229,15 @@ procedure TfrmPublishers.FormCreate(Sender: TObject);
 begin
   TabControl1.ActiveTab := tiList;
   RefreshListView;
+end;
+
+function TfrmPublishers.getCurrentPublisher: TDelphiBooksPublisher;
+begin
+  if assigned(ListView1.Selected) and assigned(ListView1.Selected.TagObject) and
+    (ListView1.Selected.TagObject is TDelphiBooksPublisher) then
+    result := ListView1.Selected.TagObject as TDelphiBooksPublisher
+  else
+    result := nil;
 end;
 
 procedure TfrmPublishers.InitEdit;
