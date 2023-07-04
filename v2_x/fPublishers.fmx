@@ -329,7 +329,7 @@ object frmPublishers: TfrmPublishers
           Size.Height = 48.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          Text = '&Biography'
+          Text = '&Description'
           OnClick = btnDescriptionsClick
         end
       end
