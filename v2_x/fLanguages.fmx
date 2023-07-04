@@ -130,7 +130,7 @@ object frmLanguages: TfrmLanguages
           Size.Height = 48.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          Text = 'Add'
+          Text = '&Add'
           OnClick = btnAddClick
         end
       end
