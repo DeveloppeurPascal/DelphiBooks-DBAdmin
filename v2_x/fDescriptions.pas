@@ -26,7 +26,10 @@ uses
   FMX.Layouts,
   FMX.ListView,
   FMX.TabControl,
-  FMX.Edit, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo;
+  FMX.Edit,
+  FMX.Memo.Types,
+  FMX.ScrollBox,
+  FMX.Memo;
 
 type
   TfrmDescriptions = class(TForm)
@@ -35,8 +38,7 @@ type
     tiEdit: TTabItem;
     ListView1: TListView;
     GridPanelLayout1: TGridPanelLayout;
-    btnSaveAndExit: TButton;
-    btnCancel: TButton;
+    btnClose: TButton;
     ToolBar1: TToolBar;
     btnAdd: TButton;
     VertScrollBox1: TVertScrollBox;
@@ -47,9 +49,7 @@ type
     lblISOCode: TLabel;
     edtISOCode: TEdit;
     mmoText: TMemo;
-    procedure btnSaveAndExitClick(Sender: TObject);
-    procedure btnCancelClick(Sender: TObject);
-    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure btnCloseClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ListView1ButtonClick(const Sender: TObject;
       const AItem: TListItem; const AObject: TListItemSimpleControl);
@@ -59,10 +59,12 @@ type
   private
     { Déclarations privées }
     fDescriptions: TDelphiBooksDescriptionsObjectList;
+    fDB: TDelphiBooksDatabase;
   public
     { Déclarations publiques }
     constructor CreateWithDescriptionsList(AOwner: TComponent;
-      ADescriptions: TDelphiBooksDescriptionsObjectList);
+      ADescriptions: TDelphiBooksDescriptionsObjectList;
+      ADB: TDelphiBooksDatabase);
     procedure RefreshListView(AGuid: string = '');
     procedure InitEdit;
   end;
@@ -85,16 +87,6 @@ begin
   ListView1.Selected := nil;
   InitEdit;
   TabControl1.Next;
-end;
-
-procedure TfrmDescriptions.btnCancelClick(Sender: TObject);
-begin
-  // TODO : manage the CANCEL operation when something has been modified
-
-  // if TabControl1.ActiveTab <> tiList then
-  // exit;
-  //
-  // Close;
 end;
 
 procedure TfrmDescriptions.btnItemCancelClick(Sender: TObject);
@@ -132,14 +124,23 @@ begin
     raise exception.Create('Use the ISO 2 letters code for a Description !');
   end
   else
+  begin
     for d in fDescriptions do
       if (d.LanguageISOCode = edtISOCode.Text) and
         ((not assigned(ListView1.Selected)) or
         (ListView1.Selected.TagObject <> d)) then
       begin
         edtISOCode.SetFocus;
-        raise exception.Create('This Description exists already !');
+        raise exception.Create
+          ('This language is already used for a description !');
       end;
+    if not assigned(fDB.Languages.GetItemByLanguage(edtISOCode.Text)) then
+    begin
+      edtISOCode.SetFocus;
+      raise exception.Create
+        ('This language is unknonw ! Add it to the database from the main menu.');
+    end;
+  end;
 
   if assigned(ListView1.Selected) and assigned(ListView1.Selected.TagObject) and
     (ListView1.Selected.TagObject is TDelphiBooksDescription) then
@@ -158,7 +159,7 @@ begin
   TabControl1.Previous;
 end;
 
-procedure TfrmDescriptions.btnSaveAndExitClick(Sender: TObject);
+procedure TfrmDescriptions.btnCloseClick(Sender: TObject);
 begin
   if TabControl1.ActiveTab <> tiList then
     exit;
@@ -167,37 +168,15 @@ begin
 end;
 
 constructor TfrmDescriptions.CreateWithDescriptionsList(AOwner: TComponent;
-  ADescriptions: TDelphiBooksDescriptionsObjectList);
+  ADescriptions: TDelphiBooksDescriptionsObjectList; ADB: TDelphiBooksDatabase);
 begin
+  if not assigned(ADB) then
+    raise exception.Create('The database is invalid !');
   if not assigned(ADescriptions) then
     raise exception.Create('Descriptions list is invalid !');
   Create(AOwner);
   fDescriptions := ADescriptions;
-end;
-
-procedure TfrmDescriptions.FormCloseQuery(Sender: TObject;
-  var CanClose: Boolean);
-// var
-// d: TDelphiBooksDescription;
-// LCanClose: Boolean;
-begin
-  // TODO : manage the CANCEL operation when something has been modified
-  // for d in FDescriptions do
-  // CanClose := CanClose and (not d.hasChanged);
-  // if not CanClose then
-  // begin
-  // tdialogservice.MessageDialog
-  // ('Changes has been done. Are you sure you want to lost them ?',
-  // tmsgdlgtype.mtWarning, [tmsgdlgbtn.mbYes, tmsgdlgbtn.mbNo],
-  // tmsgdlgbtn.mbNo, 0,
-  // procedure(Const AResult: tmodalresult)
-  // begin
-  // LCanClose := AResult = mryes;
-  // end);
-  // CanClose := LCanClose;
-  // if CanClose then
-  // FLoadDescriptionsFromRepository;
-  // end;
+  fDB := ADB;
 end;
 
 procedure TfrmDescriptions.FormCreate(Sender: TObject);

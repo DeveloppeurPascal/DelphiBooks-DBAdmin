@@ -9,14 +9,13 @@ object frmDescriptions: TfrmDescriptions
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
-  OnCloseQuery = FormCloseQuery
   DesignerMasterStyle = 0
   object TabControl1: TTabControl
     Align = Client
     Size.Width = 640.000000000000000000
     Size.Height = 480.000000000000000000
     Size.PlatformDefault = False
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 0
     TabPosition = None
     Sizes = (
@@ -28,7 +27,7 @@ object frmDescriptions: TfrmDescriptions
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -65,53 +64,31 @@ object frmDescriptions: TfrmDescriptions
         TabOrder = 0
         ColumnCollection = <
           item
-            Value = 50.000000000000000000
-          end
-          item
-            Value = 50.000000000000000000
+            Value = 100.000000000000000000
           end>
         ControlCollection = <
           item
             Column = 0
-            Control = btnSaveAndExit
-            Row = 0
-          end
-          item
-            Column = 1
-            Control = btnCancel
+            Control = btnClose
             Row = 0
           end>
         RowCollection = <
           item
             Value = 100.000000000000000000
           end>
-        object btnSaveAndExit: TButton
+        object btnClose: TButton
           Align = Client
+          Cancel = True
           Margins.Left = 10.000000000000000000
           Margins.Top = 10.000000000000000000
           Margins.Right = 10.000000000000000000
           Margins.Bottom = 10.000000000000000000
-          Size.Width = 300.000000000000000000
+          Size.Width = 620.000000000000000000
           Size.Height = 48.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          Text = '&Save and exit'
-          OnClick = btnSaveAndExitClick
-        end
-        object btnCancel: TButton
-          Align = Client
-          Cancel = True
-          Enabled = False
-          Margins.Left = 10.000000000000000000
-          Margins.Top = 10.000000000000000000
-          Margins.Right = 10.000000000000000000
-          Margins.Bottom = 10.000000000000000000
-          Size.Width = 300.000000000000000000
-          Size.Height = 48.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 1
-          Text = '&Cancel'
-          OnClick = btnCancelClick
+          Text = '&Close'
+          OnClick = btnCloseClick
         end
       end
       object ToolBar1: TToolBar
@@ -131,7 +108,7 @@ object frmDescriptions: TfrmDescriptions
           Size.Height = 48.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          Text = 'Add'
+          Text = '&Add'
           OnClick = btnAddClick
         end
       end
@@ -140,7 +117,7 @@ object frmDescriptions: TfrmDescriptions
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -169,7 +146,7 @@ object frmDescriptions: TfrmDescriptions
           Size.Height = 17.000000000000000000
           Size.PlatformDefault = False
           Text = 'Name'
-          TabOrder = 0
+          TabOrder = 2
         end
         object lblISOCode: TLabel
           Align = Top
@@ -183,12 +160,12 @@ object frmDescriptions: TfrmDescriptions
           Size.Height = 17.000000000000000000
           Size.PlatformDefault = False
           Text = 'ISO code (2 letters)'
-          TabOrder = 1
+          TabOrder = 0
         end
         object edtISOCode: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Top
-          TabOrder = 2
+          TabOrder = 1
           Position.X = 10.000000000000000000
           Position.Y = 37.000000000000000000
           Margins.Left = 10.000000000000000000
@@ -202,6 +179,7 @@ object frmDescriptions: TfrmDescriptions
         object mmoText: TMemo
           Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
           DataDetectorTypes = []
+          TextSettings.WordWrap = True
           Align = Client
           Margins.Left = 10.000000000000000000
           Margins.Top = 5.000000000000000000
