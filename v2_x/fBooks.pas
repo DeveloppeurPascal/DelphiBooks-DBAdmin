@@ -61,6 +61,7 @@ type
     btnTableOfContent: TButton;
     btnBookAuthors: TButton;
     brnBookPublishers: TButton;
+    btnCoverImage: TButton;
     procedure btnSaveAndExitClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -75,6 +76,7 @@ type
     procedure btnTableOfContentClick(Sender: TObject);
     procedure btnBookAuthorsClick(Sender: TObject);
     procedure brnBookPublishersClick(Sender: TObject);
+    procedure btnCoverImageClick(Sender: TObject);
   private
     { Déclarations privées }
     FDB: tdelphibooksdatabase;
@@ -92,12 +94,14 @@ implementation
 {$R *.fmx}
 
 uses
+  System.IOUtils,
   FMX.DialogService,
   DelphiBooks.Tools,
   fDescriptions,
   fTablesOfContent,
   fBooksAuthors,
-  fBooksPublishers;
+  fBooksPublishers,
+  fBookCoverImage;
 
 { Tfrmbooks }
 
@@ -151,6 +155,21 @@ begin
     exit;
 
   Close;
+end;
+
+procedure TfrmBooks.btnCoverImageClick(Sender: TObject);
+var
+  f: TfrmBookCoverImage;
+  b: TDelphiBooksBook;
+begin
+  b := getCurrentBook;
+  f := TfrmBookCoverImage.CreateFromPhoto(self,
+    tpath.combine(FDB.DatabaseFolder, 'b-' + b.Guid + '.png'), b);
+  try
+    f.ShowModal;
+  finally
+    f.Free;
+  end;
 end;
 
 procedure TfrmBooks.btnDescriptionsClick(Sender: TObject);
