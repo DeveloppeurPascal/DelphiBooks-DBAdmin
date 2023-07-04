@@ -12,10 +12,11 @@ uses
   uDMAboutBoxImage in 'uDMAboutBoxImage.pas' {DMAboutBoxImage: TDataModule},
   fBooks in 'fBooks.pas' {frmBooks},
   DelphiBooks.Tools in '..\lib-externes\DelphiBooks-Common\src\DelphiBooks.Tools.pas',
-  fDescriptions in 'fDescriptions.pas' {frmDescriptions},
+  fTablesOfContent in 'fTablesOfContent.pas' {frmTablesOfContent},
   fPublishers in 'fPublishers.pas' {frmPublishers},
   fAuthors in 'fAuthors.pas' {frmAuthors},
-  fLanguages in 'fLanguages.pas' {frmLanguages};
+  fLanguages in 'fLanguages.pas' {frmLanguages},
+  fDescriptions in 'fDescriptions.pas' {frmDescriptions};
 
 {$R *.res}
 
