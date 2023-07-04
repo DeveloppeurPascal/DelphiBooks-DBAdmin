@@ -17,6 +17,7 @@ uses
   fAuthors in 'fAuthors.pas' {frmAuthors},
   fLanguages in 'fLanguages.pas' {frmLanguages},
   fDescriptions in 'fDescriptions.pas' {frmDescriptions},
+  fBooksPublishers in 'fBooksPublishers.pas' {frmBooksPublishers},
   fBooksAuthors in 'fBooksAuthors.pas' {frmBooksAuthors};
 
 {$R *.res}

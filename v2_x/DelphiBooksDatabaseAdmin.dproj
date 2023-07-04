@@ -359,6 +359,10 @@
             <Form>frmDescriptions</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="fBooksPublishers.pas">
+            <Form>frmBooksPublishers</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <DCCReference Include="fBooksAuthors.pas">
             <Form>frmBooksAuthors</Form>
             <FormType>fmx</FormType>
