@@ -174,6 +174,7 @@ begin
   l.Text := edtText.Text;
   l.LanguageISOCode := edtISOCode.Text;
   l.PageName := edtPageName.Text;
+  FDB.SaveItemToRepository(l);
   RefreshListView(l.Guid);
   TabControl1.Previous;
 end;
