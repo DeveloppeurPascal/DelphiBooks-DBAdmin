@@ -73,6 +73,8 @@ begin
         lvDestination.Items[i].text + ' !');
     FPublishers.Add(pshort);
   end;
+  if assigned(FPublishers.Parent) then
+    FPublishers.Parent.sethaschanged(true);
   close;
 end;
 
