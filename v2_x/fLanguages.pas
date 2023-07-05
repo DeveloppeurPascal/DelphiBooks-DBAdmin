@@ -33,8 +33,7 @@ type
     tiEdit: TTabItem;
     ListView1: TListView;
     GridPanelLayout1: TGridPanelLayout;
-    btnSaveAndExit: TButton;
-    btnCancel: TButton;
+    btnClose: TButton;
     ToolBar1: TToolBar;
     btnAdd: TButton;
     VertScrollBox1: TVertScrollBox;
@@ -47,8 +46,7 @@ type
     edtISOCode: TEdit;
     lblPageName: TLabel;
     edtPageName: TEdit;
-    procedure btnSaveAndExitClick(Sender: TObject);
-    procedure btnCancelClick(Sender: TObject);
+    procedure btnCloseClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormCreate(Sender: TObject);
     procedure ListView1ButtonClick(const Sender: TObject;
@@ -88,7 +86,7 @@ begin
   TabControl1.Next;
 end;
 
-procedure TfrmLanguages.btnCancelClick(Sender: TObject);
+procedure TfrmLanguages.btnCloseClick(Sender: TObject);
 begin
   if TabControl1.ActiveTab <> tiList then
     exit;
@@ -174,18 +172,9 @@ begin
   l.Text := edtText.Text;
   l.LanguageISOCode := edtISOCode.Text;
   l.PageName := edtPageName.Text;
-  FDB.SaveItemToRepository(l);
+  FDB.SaveItemToRepository(l, TDelphiBooksTable.Languages);
   RefreshListView(l.Guid);
   TabControl1.Previous;
-end;
-
-procedure TfrmLanguages.btnSaveAndExitClick(Sender: TObject);
-begin
-  if TabControl1.ActiveTab <> tiList then
-    exit;
-
-  FDB.SaveLanguagesToRepository;
-  Close;
 end;
 
 constructor TfrmLanguages.CreateWithDB(AOwner: TComponent;
