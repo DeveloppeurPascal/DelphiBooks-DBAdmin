@@ -278,6 +278,11 @@ begin
   b.WebSiteURL := edtWebSite.Text;
   b.PageName := edtPageName.Text;
   FDB.SaveItemToRepository(b, TDelphiBooksTable.books);
+
+  // TODO : rebuild links to books in authors (from this book)
+  // TODO : rebuild links to books in publishers (from this book)
+  // it won't be enough for previous authors/publishers but will fix new links
+
   RefreshListView(b.Guid);
   TabControl1.Previous;
 end;
@@ -343,7 +348,7 @@ begin
 end;
 
 procedure TfrmBooks.ListView1ButtonClick(const Sender: TObject;
-const AItem: TListItem; const AObject: TListItemSimpleControl);
+  const AItem: TListItem; const AObject: TListItemSimpleControl);
 var
   b: TDelphiBooksBook;
 begin
