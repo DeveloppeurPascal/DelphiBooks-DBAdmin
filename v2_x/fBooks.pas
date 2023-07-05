@@ -36,8 +36,7 @@ type
     tiEdit: TTabItem;
     ListView1: TListView;
     GridPanelLayout1: TGridPanelLayout;
-    btnSaveAndExit: TButton;
-    btnCancel: TButton;
+    btnClose: TButton;
     ToolBar1: TToolBar;
     btnAdd: TButton;
     VertScrollBox1: TVertScrollBox;
@@ -62,8 +61,7 @@ type
     btnBookAuthors: TButton;
     brnBookPublishers: TButton;
     btnCoverImage: TButton;
-    procedure btnSaveAndExitClick(Sender: TObject);
-    procedure btnCancelClick(Sender: TObject);
+    procedure btnCloseClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormCreate(Sender: TObject);
     procedure ListView1ButtonClick(const Sender: TObject;
@@ -149,7 +147,7 @@ begin
   end;
 end;
 
-procedure TfrmBooks.btnCancelClick(Sender: TObject);
+procedure TfrmBooks.btnCloseClick(Sender: TObject);
 begin
   if TabControl1.ActiveTab <> tiList then
     exit;
@@ -259,18 +257,9 @@ begin
   b.PublishedDateYYYYMMDD := edtPubDate.Text;
   b.WebSiteURL := edtWebSite.Text;
   b.PageName := edtPageName.Text;
-  FDB.SaveItemToRepository(b);
+  FDB.SaveItemToRepository(b, TDelphiBooksTable.books);
   RefreshListView(b.Guid);
   TabControl1.Previous;
-end;
-
-procedure TfrmBooks.btnSaveAndExitClick(Sender: TObject);
-begin
-  if TabControl1.ActiveTab <> tiList then
-    exit;
-
-  FDB.SavebooksToRepository;
-  Close;
 end;
 
 procedure TfrmBooks.btnTableOfContentClick(Sender: TObject);
