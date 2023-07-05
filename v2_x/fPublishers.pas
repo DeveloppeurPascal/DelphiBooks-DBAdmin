@@ -33,8 +33,7 @@ type
     tiEdit: TTabItem;
     ListView1: TListView;
     GridPanelLayout1: TGridPanelLayout;
-    btnSaveAndExit: TButton;
-    btnCancel: TButton;
+    btnClose: TButton;
     ToolBar1: TToolBar;
     btnAdd: TButton;
     VertScrollBox1: TVertScrollBox;
@@ -49,8 +48,7 @@ type
     edtPageName: TEdit;
     gplContextualMenu: TGridPanelLayout;
     btnDescriptions: TButton;
-    procedure btnSaveAndExitClick(Sender: TObject);
-    procedure btnCancelClick(Sender: TObject);
+    procedure btnCloseClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormCreate(Sender: TObject);
     procedure ListView1ButtonClick(const Sender: TObject;
@@ -93,7 +91,7 @@ begin
   TabControl1.Next;
 end;
 
-procedure TfrmPublishers.btnCancelClick(Sender: TObject);
+procedure TfrmPublishers.btnCloseClick(Sender: TObject);
 begin
   if TabControl1.ActiveTab <> tiList then
     exit;
@@ -173,18 +171,9 @@ begin
   p.CompanyName := edtCompanyName.Text;
   p.WebSiteURL := edtWebSite.Text;
   p.PageName := edtPageName.Text;
-  FDB.SaveItemToRepository(p);
+  FDB.SaveItemToRepository(p, TDelphiBooksTable.Publishers);
   RefreshListView(p.Guid);
   TabControl1.Previous;
-end;
-
-procedure TfrmPublishers.btnSaveAndExitClick(Sender: TObject);
-begin
-  if TabControl1.ActiveTab <> tiList then
-    exit;
-
-  FDB.SavePublishersToRepository;
-  Close;
 end;
 
 constructor TfrmPublishers.CreateWithDB(AOwner: TComponent;
