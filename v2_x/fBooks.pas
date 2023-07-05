@@ -2,7 +2,6 @@ unit fBooks;
 
 // TODO : add a DELETE feature
 // TODO : add the CRUD for books KEYWORDS
-// TODO : add the CRUD for books cover image
 
 interface
 
@@ -162,7 +161,7 @@ var
 begin
   b := getCurrentBook;
   f := TfrmBookCoverImage.CreateFromPhoto(self,
-    tpath.combine(FDB.DatabaseFolder, 'b-' + b.Guid + '.png'), b);
+    tpath.combine(FDB.DatabaseFolder, b.GetImageFileName), b);
   try
     f.ShowModal;
   finally
