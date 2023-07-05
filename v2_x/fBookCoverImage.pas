@@ -36,9 +36,13 @@ type
   private
     FCoverFileName: string;
     FDelphiBooksItem: Tdelphibooksitem;
+    FImageChanged: boolean;
+    procedure SetImageChanged(const Value: boolean);
   public
+    property ImageChanged: boolean read FImageChanged write SetImageChanged;
     constructor CreateFromPhoto(AOwner: TComponent; AFileName: string;
       AItem: Tdelphibooksitem);
+    constructor Create(AOwner: TComponent); override;
   end;
 
 implementation
@@ -46,7 +50,7 @@ implementation
 {$R *.fmx}
 
 uses
-  System.IOUtils;
+  System.IOUtils, DelphiBooks.DB.Repository;
 
 procedure TfrmBookCoverImage.btnCancelClick(Sender: TObject);
 begin
@@ -62,26 +66,36 @@ begin
     else
       ImageViewer1.Bitmap.setsize(0, 0);
     btnSaveAndExit.Enabled := true;
+    FImageChanged := true;
   end;
 end;
 
 procedure TfrmBookCoverImage.btnSaveAndExitClick(Sender: TObject);
 begin
-  // TODO : save something in the book object to tell to WSBuilder that the picture has changed
-  if tfile.Exists(FCoverFileName) then
-    tfile.Delete(FCoverFileName);
-  if (ImageViewer1.Bitmap.Width > 0) then
-    ImageViewer1.Bitmap.SaveToFile(FCoverFileName);
+  if FImageChanged then
+  begin
+    if tfile.Exists(FCoverFileName) then
+      tfile.Delete(FCoverFileName);
+    if (ImageViewer1.Bitmap.Width > 0) then
+      ImageViewer1.Bitmap.SaveToFile(FCoverFileName);
+    FDelphiBooksItem.SetHasNewImage(true);
+  end;
   close;
+end;
+
+constructor TfrmBookCoverImage.Create(AOwner: TComponent);
+begin
+  inherited;
+  FImageChanged := false;
 end;
 
 constructor TfrmBookCoverImage.CreateFromPhoto(AOwner: TComponent;
   AFileName: string; AItem: Tdelphibooksitem);
 begin
   if not assigned(AItem) then
-    raise exception.create('Need an item to choose a picture !');
+    raise exception.Create('Need an item to choose a picture !');
 
-  create(AOwner);
+  Create(AOwner);
 
   FDelphiBooksItem := AItem;
 
@@ -89,6 +103,11 @@ begin
   if tfile.Exists(FCoverFileName) then
     ImageViewer1.Bitmap.LoadFromFile(FCoverFileName);
   btnSaveAndExit.Enabled := false;
+end;
+
+procedure TfrmBookCoverImage.SetImageChanged(const Value: boolean);
+begin
+  FImageChanged := Value;
 end;
 
 end.
