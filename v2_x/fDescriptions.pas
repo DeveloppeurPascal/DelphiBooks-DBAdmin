@@ -115,12 +115,12 @@ begin
   if edtISOCode.Text.IsEmpty then
   begin
     edtISOCode.SetFocus;
-    raise exception.Create('ISO code is needed !');
+    raise exception.Create('Language ISO code is needed !');
   end
   else if (edtISOCode.Text.Length <> 2) then
   begin
     edtISOCode.SetFocus;
-    raise exception.Create('Use the ISO 2 letters code for a Description !');
+    raise exception.Create('Use the ISO 2 letters language code for a Description !');
   end
   else
   begin

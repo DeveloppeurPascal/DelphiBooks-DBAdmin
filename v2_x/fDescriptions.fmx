@@ -159,7 +159,7 @@ object frmDescriptions: TfrmDescriptions
           Size.Width = 620.000000000000000000
           Size.Height = 17.000000000000000000
           Size.PlatformDefault = False
-          Text = 'ISO code (2 letters)'
+          Text = 'Language ISO code (2 letters)'
           TabOrder = 0
         end
         object edtISOCode: TEdit
