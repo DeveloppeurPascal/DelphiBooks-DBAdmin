@@ -62,7 +62,10 @@ begin
   if OpenDialog1.execute then
   begin
     if tfile.Exists(OpenDialog1.FileName) then
-      ImageViewer1.Bitmap.LoadFromFile(OpenDialog1.FileName)
+    begin
+      ImageViewer1.Bitmap.LoadFromFile(OpenDialog1.FileName);
+      ImageViewer1.BestFit;
+    end
     else
       ImageViewer1.Bitmap.setsize(0, 0);
     btnSaveAndExit.Enabled := true;
@@ -101,7 +104,10 @@ begin
 
   FCoverFileName := AFileName;
   if tfile.Exists(FCoverFileName) then
+  begin
     ImageViewer1.Bitmap.LoadFromFile(FCoverFileName);
+    ImageViewer1.BestFit;
+  end;
   btnSaveAndExit.Enabled := false;
 end;
 
