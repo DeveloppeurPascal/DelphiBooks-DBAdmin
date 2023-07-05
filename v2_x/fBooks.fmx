@@ -378,7 +378,7 @@ object frmBooks: TfrmBooks
           Size.Height = 48.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
-          Text = '&Cancel'
+          Text = 'Ca&ncel'
           OnClick = btnItemCancelClick
         end
       end
