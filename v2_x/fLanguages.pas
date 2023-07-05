@@ -47,7 +47,6 @@ type
     lblPageName: TLabel;
     edtPageName: TEdit;
     procedure btnCloseClick(Sender: TObject);
-    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormCreate(Sender: TObject);
     procedure ListView1ButtonClick(const Sender: TObject;
       const AItem: TListItem; const AObject: TListItemSimpleControl);
@@ -191,29 +190,6 @@ end;
 procedure TfrmLanguages.edtTextChange(Sender: TObject);
 begin
   SetPageNameFromText;
-end;
-
-procedure TfrmLanguages.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
-var
-  l: TDelphiBooksLanguage;
-  LCanClose: Boolean;
-begin
-  for l in FDB.Languages do
-    CanClose := CanClose and (not l.hasChanged);
-  if not CanClose then
-  begin
-    tdialogservice.MessageDialog
-      ('Changes has been done. Are you sure you want to lost them ?',
-      tmsgdlgtype.mtWarning, [tmsgdlgbtn.mbYes, tmsgdlgbtn.mbNo],
-      tmsgdlgbtn.mbNo, 0,
-      procedure(Const AResult: tmodalresult)
-      begin
-        LCanClose := AResult = mryes;
-      end);
-    CanClose := LCanClose;
-    if CanClose then
-      FDB.LoadLanguagesFromRepository;
-  end;
 end;
 
 procedure TfrmLanguages.FormCreate(Sender: TObject);

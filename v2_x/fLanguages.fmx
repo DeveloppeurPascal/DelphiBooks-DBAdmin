@@ -9,7 +9,6 @@ object frmLanguages: TfrmLanguages
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
-  OnCloseQuery = FormCloseQuery
   DesignerMasterStyle = 0
   object TabControl1: TTabControl
     Align = Client
