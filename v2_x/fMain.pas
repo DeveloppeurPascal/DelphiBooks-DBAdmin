@@ -197,4 +197,10 @@ begin
   FDB := Value;
 end;
 
+initialization
+
+{$IFDEF DEBUG}
+  ReportMemoryLeaksOnShutdown := true;
+{$ENDIF}
+
 end.
