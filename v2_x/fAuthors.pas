@@ -182,6 +182,7 @@ begin
   a.Pseudo := edtPseudo.Text;
   a.WebSiteURL := edtWebSite.Text;
   a.PageName := edtPageName.Text;
+  FDB.SaveItemToRepository(a);
   RefreshListView(a.Guid);
   TabControl1.Previous;
 end;
