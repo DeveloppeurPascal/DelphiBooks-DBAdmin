@@ -259,6 +259,7 @@ begin
   b.PublishedDateYYYYMMDD := edtPubDate.Text;
   b.WebSiteURL := edtWebSite.Text;
   b.PageName := edtPageName.Text;
+  FDB.SaveItemToRepository(b);
   RefreshListView(b.Guid);
   TabControl1.Previous;
 end;
