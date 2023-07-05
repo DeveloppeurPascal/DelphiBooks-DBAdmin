@@ -154,6 +154,8 @@ begin
   end;
   d.Text := mmoText.Text;
   d.LanguageISOCode := edtISOCode.Text;
+  if assigned(fDescriptions.Parent) then
+    fDescriptions.Parent.sethaschanged(true);
   RefreshListView(d.Guid);
   TabControl1.Previous;
 end;
