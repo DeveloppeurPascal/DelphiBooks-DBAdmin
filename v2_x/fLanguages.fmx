@@ -109,7 +109,7 @@ object frmLanguages: TfrmLanguages
           Size.Height = 48.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
-          Text = '&Cancel'
+          Text = 'Ca&ncel'
           OnClick = btnCancelClick
         end
       end
@@ -294,7 +294,7 @@ object frmLanguages: TfrmLanguages
           Size.Height = 48.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
-          Text = '&Cancel'
+          Text = 'Ca&ncel'
           OnClick = btnItemCancelClick
         end
       end
