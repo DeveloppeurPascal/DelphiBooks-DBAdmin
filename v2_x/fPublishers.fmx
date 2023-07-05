@@ -16,7 +16,7 @@ object frmPublishers: TfrmPublishers
     Size.Width = 640.000000000000000000
     Size.Height = 480.000000000000000000
     Size.PlatformDefault = False
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 0
     TabPosition = None
     Sizes = (
@@ -28,7 +28,7 @@ object frmPublishers: TfrmPublishers
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -109,7 +109,7 @@ object frmPublishers: TfrmPublishers
           Size.Height = 48.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
-          Text = '&Cancel'
+          Text = 'Ca&ncel'
           OnClick = btnCancelClick
         end
       end
@@ -139,7 +139,7 @@ object frmPublishers: TfrmPublishers
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -294,7 +294,7 @@ object frmPublishers: TfrmPublishers
           Size.Height = 48.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
-          Text = '&Cancel'
+          Text = 'Ca&ncel'
           OnClick = btnItemCancelClick
         end
       end
