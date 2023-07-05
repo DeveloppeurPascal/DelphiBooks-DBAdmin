@@ -11,8 +11,8 @@ object frmMain: TfrmMain
   OnCreate = FormCreate
   DesignerMasterStyle = 0
   object OlfAboutDialog1: TOlfAboutDialog
-    VersionNumero = '2.0'
-    VersionDate = '20230704'
+    VersionNumero = '2.1'
+    VersionDate = '20230705'
     MultiResBitmap = <
       item
       end>
