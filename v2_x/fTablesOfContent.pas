@@ -115,12 +115,12 @@ begin
   if edtISOCode.Text.IsEmpty then
   begin
     edtISOCode.SetFocus;
-    raise exception.Create('ISO code is needed !');
+    raise exception.Create('Language ISO code is needed !');
   end
   else if (edtISOCode.Text.Length <> 2) then
   begin
     edtISOCode.SetFocus;
-    raise exception.Create('Use the ISO 2 letters code for a TableOfContent !');
+    raise exception.Create('Use the ISO 2 letters language code for a table of content !');
   end
   else
   begin
@@ -175,7 +175,7 @@ begin
   if not assigned(ADB) then
     raise exception.Create('The database is invalid !');
   if not assigned(ATableOfContents) then
-    raise exception.Create('table of content list is invalid !');
+    raise exception.Create('Table of content list is invalid !');
   Create(AOwner);
   fTableOfContents := ATableOfContents;
   fDB := ADB;
