@@ -173,6 +173,7 @@ begin
   p.CompanyName := edtCompanyName.Text;
   p.WebSiteURL := edtWebSite.Text;
   p.PageName := edtPageName.Text;
+  FDB.SaveItemToRepository(p);
   RefreshListView(p.Guid);
   TabControl1.Previous;
 end;
