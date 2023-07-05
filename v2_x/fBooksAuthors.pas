@@ -72,6 +72,8 @@ begin
         lvDestination.Items[i].text + ' !');
     FAuthors.Add(ashort);
   end;
+  if assigned(FAuthors.Parent) then
+    FAuthors.Parent.sethaschanged(true);
   close;
 end;
 
