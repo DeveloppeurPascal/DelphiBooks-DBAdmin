@@ -65,19 +65,11 @@ object frmAuthors: TfrmAuthors
         TabOrder = 0
         ColumnCollection = <
           item
-            Value = 50.000000000000000000
-          end
-          item
-            Value = 50.000000000000000000
+            Value = 100.000000000000000000
           end>
         ControlCollection = <
           item
             Column = 0
-            Control = btnSaveAndExit
-            Row = 0
-          end
-          item
-            Column = 1
             Control = btnCancel
             Row = 0
           end>
@@ -85,19 +77,6 @@ object frmAuthors: TfrmAuthors
           item
             Value = 100.000000000000000000
           end>
-        object btnSaveAndExit: TButton
-          Align = Client
-          Margins.Left = 10.000000000000000000
-          Margins.Top = 10.000000000000000000
-          Margins.Right = 10.000000000000000000
-          Margins.Bottom = 10.000000000000000000
-          Size.Width = 300.000000000000000000
-          Size.Height = 48.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 0
-          Text = '&Save and exit'
-          OnClick = btnSaveAndExitClick
-        end
         object btnCancel: TButton
           Align = Client
           Cancel = True
@@ -105,11 +84,11 @@ object frmAuthors: TfrmAuthors
           Margins.Top = 10.000000000000000000
           Margins.Right = 10.000000000000000000
           Margins.Bottom = 10.000000000000000000
-          Size.Width = 300.000000000000000000
+          Size.Width = 620.000000000000000000
           Size.Height = 48.000000000000000000
           Size.PlatformDefault = False
-          TabOrder = 1
-          Text = 'Ca&ncel'
+          TabOrder = 0
+          Text = '&Close'
           OnClick = btnCancelClick
         end
       end

@@ -33,7 +33,6 @@ type
     tiEdit: TTabItem;
     ListView1: TListView;
     GridPanelLayout1: TGridPanelLayout;
-    btnSaveAndExit: TButton;
     btnCancel: TButton;
     ToolBar1: TToolBar;
     btnAdd: TButton;
@@ -53,7 +52,6 @@ type
     edtFirstname: TEdit;
     gplContextualMenu: TGridPanelLayout;
     btnDescriptions: TButton;
-    procedure btnSaveAndExitClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormCreate(Sender: TObject);
@@ -182,18 +180,9 @@ begin
   a.Pseudo := edtPseudo.Text;
   a.WebSiteURL := edtWebSite.Text;
   a.PageName := edtPageName.Text;
-  FDB.SaveItemToRepository(a);
+  FDB.SaveItemToRepository(a, TDelphiBooksTable.authors);
   RefreshListView(a.Guid);
   TabControl1.Previous;
-end;
-
-procedure TfrmAuthors.btnSaveAndExitClick(Sender: TObject);
-begin
-  if TabControl1.ActiveTab <> tiList then
-    exit;
-
-  FDB.SaveauthorsToRepository;
-  Close;
 end;
 
 constructor TfrmAuthors.CreateWithDB(AOwner: TComponent;
