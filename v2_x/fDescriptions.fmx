@@ -189,8 +189,8 @@ object frmDescriptions: TfrmDescriptions
           Size.Height = 296.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 3
-          Viewport.Width = 620.000000000000000000
-          Viewport.Height = 296.000000000000000000
+          Viewport.Width = 616.000000000000000000
+          Viewport.Height = 292.000000000000000000
         end
       end
       object GridPanelLayout2: TGridPanelLayout
@@ -210,7 +210,7 @@ object frmDescriptions: TfrmDescriptions
         ControlCollection = <
           item
             Column = 0
-            Control = btnItemSave
+            Control = btnItemClose
             Row = 0
           end
           item
@@ -222,7 +222,7 @@ object frmDescriptions: TfrmDescriptions
           item
             Value = 100.000000000000000000
           end>
-        object btnItemSave: TButton
+        object btnItemClose: TButton
           Align = Client
           Margins.Left = 10.000000000000000000
           Margins.Top = 10.000000000000000000
@@ -232,8 +232,8 @@ object frmDescriptions: TfrmDescriptions
           Size.Height = 48.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          Text = '&Save'
-          OnClick = btnItemSaveClick
+          Text = '&Close'
+          OnClick = btnItemCloseClick
         end
         object btnItemCancel: TButton
           Align = Client
@@ -245,7 +245,7 @@ object frmDescriptions: TfrmDescriptions
           Size.Height = 48.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
-          Text = '&Cancel'
+          Text = 'Ca&ncel'
           OnClick = btnItemCancelClick
         end
       end

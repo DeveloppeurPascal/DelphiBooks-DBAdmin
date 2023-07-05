@@ -43,7 +43,7 @@ type
     btnAdd: TButton;
     VertScrollBox1: TVertScrollBox;
     GridPanelLayout2: TGridPanelLayout;
-    btnItemSave: TButton;
+    btnItemClose: TButton;
     btnItemCancel: TButton;
     lblText: TLabel;
     lblISOCode: TLabel;
@@ -55,7 +55,7 @@ type
       const AItem: TListItem; const AObject: TListItemSimpleControl);
     procedure btnAddClick(Sender: TObject);
     procedure btnItemCancelClick(Sender: TObject);
-    procedure btnItemSaveClick(Sender: TObject);
+    procedure btnItemCloseClick(Sender: TObject);
   private
     { Déclarations privées }
     fDescriptions: TDelphiBooksDescriptionsObjectList;
@@ -97,7 +97,7 @@ begin
   TabControl1.Previous;
 end;
 
-procedure TfrmDescriptions.btnItemSaveClick(Sender: TObject);
+procedure TfrmDescriptions.btnItemCloseClick(Sender: TObject);
 var
   d: TDelphiBooksDescription;
 begin
