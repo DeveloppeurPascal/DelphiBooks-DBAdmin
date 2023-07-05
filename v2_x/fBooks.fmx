@@ -2,7 +2,7 @@ object frmBooks: TfrmBooks
   Left = 0
   Top = 0
   Caption = 'Books'
-  ClientHeight = 723
+  ClientHeight = 793
   ClientWidth = 640
   Position = OwnerFormCenter
   FormFactor.Width = 320
@@ -14,21 +14,21 @@ object frmBooks: TfrmBooks
   object TabControl1: TTabControl
     Align = Client
     Size.Width = 640.000000000000000000
-    Size.Height = 723.000000000000000000
+    Size.Height = 793.000000000000000000
     Size.PlatformDefault = False
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 0
     TabPosition = None
     Sizes = (
       640s
-      723s
+      793s
       640s
-      723s)
+      793s)
     object tiList: TTabItem
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -49,7 +49,7 @@ object frmBooks: TfrmBooks
         Margins.Right = 10.000000000000000000
         Margins.Bottom = 10.000000000000000000
         Size.Width = 620.000000000000000000
-        Size.Height = 567.000000000000000000
+        Size.Height = 637.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
         CanSwipeDelete = False
@@ -58,7 +58,7 @@ object frmBooks: TfrmBooks
       end
       object GridPanelLayout1: TGridPanelLayout
         Align = Bottom
-        Position.Y = 655.000000000000000000
+        Position.Y = 725.000000000000000000
         Size.Width = 640.000000000000000000
         Size.Height = 68.000000000000000000
         Size.PlatformDefault = False
@@ -118,7 +118,7 @@ object frmBooks: TfrmBooks
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -130,11 +130,11 @@ object frmBooks: TfrmBooks
       object VertScrollBox1: TVertScrollBox
         Align = Client
         Size.Width = 640.000000000000000000
-        Size.Height = 451.000000000000000000
+        Size.Height = 521.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         Viewport.Width = 640.000000000000000000
-        Viewport.Height = 451.000000000000000000
+        Viewport.Height = 521.000000000000000000
         object lblPubDate: TLabel
           Align = Top
           Margins.Left = 10.000000000000000000
@@ -142,19 +142,19 @@ object frmBooks: TfrmBooks
           Margins.Right = 10.000000000000000000
           Margins.Bottom = 5.000000000000000000
           Position.X = 10.000000000000000000
-          Position.Y = 217.000000000000000000
+          Position.Y = 286.000000000000000000
           Size.Width = 620.000000000000000000
           Size.Height = 17.000000000000000000
           Size.PlatformDefault = False
           Text = 'Publication date (YYYYMMDD)'
-          TabOrder = 6
+          TabOrder = 8
         end
         object edtPubDate: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Top
-          TabOrder = 7
+          TabOrder = 9
           Position.X = 10.000000000000000000
-          Position.Y = 244.000000000000000000
+          Position.Y = 313.000000000000000000
           Margins.Left = 10.000000000000000000
           Margins.Top = 5.000000000000000000
           Margins.Right = 10.000000000000000000
@@ -170,19 +170,19 @@ object frmBooks: TfrmBooks
           Margins.Right = 10.000000000000000000
           Margins.Bottom = 5.000000000000000000
           Position.X = 10.000000000000000000
-          Position.Y = 286.000000000000000000
+          Position.Y = 355.000000000000000000
           Size.Width = 620.000000000000000000
           Size.Height = 17.000000000000000000
           Size.PlatformDefault = False
           Text = 'Site URL (http://xxx or https://xxx)'
-          TabOrder = 8
+          TabOrder = 10
         end
         object edtWebSite: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Top
-          TabOrder = 9
+          TabOrder = 11
           Position.X = 10.000000000000000000
-          Position.Y = 313.000000000000000000
+          Position.Y = 382.000000000000000000
           Margins.Left = 10.000000000000000000
           Margins.Top = 5.000000000000000000
           Margins.Right = 10.000000000000000000
@@ -198,19 +198,19 @@ object frmBooks: TfrmBooks
           Margins.Right = 10.000000000000000000
           Margins.Bottom = 5.000000000000000000
           Position.X = 10.000000000000000000
-          Position.Y = 355.000000000000000000
+          Position.Y = 424.000000000000000000
           Size.Width = 620.000000000000000000
           Size.Height = 17.000000000000000000
           Size.PlatformDefault = False
           Text = 'Page name'
-          TabOrder = 10
+          TabOrder = 12
         end
         object edtPageName: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Top
-          TabOrder = 11
+          TabOrder = 13
           Position.X = 10.000000000000000000
-          Position.Y = 382.000000000000000000
+          Position.Y = 451.000000000000000000
           Margins.Left = 10.000000000000000000
           Margins.Top = 5.000000000000000000
           Margins.Right = 10.000000000000000000
@@ -226,19 +226,19 @@ object frmBooks: TfrmBooks
           Margins.Right = 10.000000000000000000
           Margins.Bottom = 5.000000000000000000
           Position.X = 10.000000000000000000
-          Position.Y = 79.000000000000000000
+          Position.Y = 148.000000000000000000
           Size.Width = 620.000000000000000000
           Size.Height = 17.000000000000000000
           Size.PlatformDefault = False
           Text = 'ISBN10'
-          TabOrder = 2
+          TabOrder = 4
         end
         object edtISBN10: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Top
-          TabOrder = 3
+          TabOrder = 5
           Position.X = 10.000000000000000000
-          Position.Y = 106.000000000000000000
+          Position.Y = 175.000000000000000000
           Margins.Left = 10.000000000000000000
           Margins.Top = 5.000000000000000000
           Margins.Right = 10.000000000000000000
@@ -283,19 +283,47 @@ object frmBooks: TfrmBooks
           Margins.Right = 10.000000000000000000
           Margins.Bottom = 5.000000000000000000
           Position.X = 10.000000000000000000
-          Position.Y = 148.000000000000000000
+          Position.Y = 217.000000000000000000
           Size.Width = 620.000000000000000000
           Size.Height = 17.000000000000000000
           Size.PlatformDefault = False
           Text = 'ISBN13 - GENCOD'
-          TabOrder = 4
+          TabOrder = 6
         end
         object edtISBN13: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Top
-          TabOrder = 5
+          TabOrder = 7
           Position.X = 10.000000000000000000
-          Position.Y = 175.000000000000000000
+          Position.Y = 244.000000000000000000
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Size.Width = 620.000000000000000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+        end
+        object lblISOCode: TLabel
+          Align = Top
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 79.000000000000000000
+          Size.Width = 620.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Language ISO code (2 letters)'
+          TabOrder = 2
+        end
+        object edtISOCode: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = Top
+          TabOrder = 3
+          Position.X = 10.000000000000000000
+          Position.Y = 106.000000000000000000
           Margins.Left = 10.000000000000000000
           Margins.Top = 5.000000000000000000
           Margins.Right = 10.000000000000000000
@@ -307,7 +335,7 @@ object frmBooks: TfrmBooks
       end
       object GridPanelLayout2: TGridPanelLayout
         Align = MostBottom
-        Position.Y = 655.000000000000000000
+        Position.Y = 725.000000000000000000
         Size.Width = 640.000000000000000000
         Size.Height = 68.000000000000000000
         Size.PlatformDefault = False
@@ -363,7 +391,7 @@ object frmBooks: TfrmBooks
       end
       object gplContextualMenu: TGridPanelLayout
         Align = Bottom
-        Position.Y = 451.000000000000000000
+        Position.Y = 521.000000000000000000
         Size.Width = 640.000000000000000000
         Size.Height = 204.000000000000000000
         Size.PlatformDefault = False

@@ -60,6 +60,8 @@ type
     btnBookAuthors: TButton;
     brnBookPublishers: TButton;
     btnCoverImage: TButton;
+    lblISOCode: TLabel;
+    edtISOCode: TEdit;
     procedure btnCloseClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormCreate(Sender: TObject);
@@ -209,6 +211,25 @@ begin
     raise exception.Create('A book needs a title !');
   end;
 
+  edtISOCode.Text := edtISOCode.Text.Trim.ToLower;
+  if edtISOCode.Text.IsEmpty then
+  begin
+    edtISOCode.SetFocus;
+    raise exception.Create('Language ISO code is needed !');
+  end
+  else if (edtISOCode.Text.Length <> 2) then
+  begin
+    edtISOCode.SetFocus;
+    raise exception.Create
+      ('Use the ISO 2 letters language code for a Description !');
+  end
+  else if not assigned(FDB.Languages.GetItemByLanguage(edtISOCode.Text)) then
+  begin
+    edtISOCode.SetFocus;
+    raise exception.Create
+      ('This language is unknonw ! Add it to the database from the main menu.');
+  end;
+
   edtISBN10.Text := edtISBN10.Text.Trim;
 
   edtISBN13.Text := edtISBN13.Text.Trim;
@@ -251,6 +272,7 @@ begin
     FDB.books.Add(b);
   end;
   b.Title := edtTitle.Text;
+  b.LanguageISOCode := edtISOCode.Text;
   b.ISBN10 := edtISBN10.Text;
   b.ISBN13 := edtISBN13.Text;
   b.PublishedDateYYYYMMDD := edtPubDate.Text;
@@ -335,6 +357,7 @@ end;
 procedure TfrmBooks.InitEdit;
 begin
   edtTitle.Text := '';
+  edtISOCode.Text := '';
   edtISBN10.Text := '';
   edtISBN13.Text := '';
   edtPubDate.Text := '';
@@ -364,6 +387,7 @@ begin
 
   InitEdit;
   edtTitle.Text := b.Title;
+  edtISOCode.Text := b.LanguageISOCode;
   edtISBN10.Text := b.ISBN10;
   edtISBN13.Text := b.ISBN13;
   edtPubDate.Text := b.PublishedDateYYYYMMDD;
