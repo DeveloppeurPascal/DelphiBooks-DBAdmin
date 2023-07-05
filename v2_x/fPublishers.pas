@@ -235,6 +235,7 @@ begin
   edtCompanyName.Text := '';
   edtWebSite.Text := '';
   edtPageName.Text := '';
+  gplContextualMenu.Visible := false;
 end;
 
 procedure TfrmPublishers.ListView1ButtonClick(const Sender: TObject;
@@ -260,6 +261,7 @@ begin
   edtCompanyName.Text := p.CompanyName;
   edtWebSite.Text := p.WebSiteURL;
   edtPageName.Text := p.PageName;
+  gplContextualMenu.Visible := true;
   TabControl1.Next;
 end;
 
