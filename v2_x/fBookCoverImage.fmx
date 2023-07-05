@@ -22,28 +22,13 @@ object frmBookCoverImage: TfrmBookCoverImage
     Viewport.Width = 676.000000000000000000
     Viewport.Height = 540.000000000000000000
   end
-  object btnChange: TButton
-    Align = Bottom
-    Margins.Left = 10.000000000000000000
-    Margins.Top = 10.000000000000000000
-    Margins.Right = 10.000000000000000000
-    Margins.Bottom = 10.000000000000000000
-    Position.X = 10.000000000000000000
-    Position.Y = 574.000000000000000000
-    Size.Width = 680.000000000000000000
-    Size.Height = 48.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 1
-    Text = 'Change p&icture'
-    OnClick = btnChangeClick
-  end
   object GridPanelLayout1: TGridPanelLayout
     Align = MostBottom
     Position.Y = 632.000000000000000000
     Size.Width = 700.000000000000000000
     Size.Height = 68.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 2
+    TabOrder = 1
     ColumnCollection = <
       item
         Value = 50.000000000000000000
@@ -102,5 +87,61 @@ object frmBookCoverImage: TfrmBookCoverImage
     Options = [ofPathMustExist, ofFileMustExist, ofEnableSizing]
     Left = 304
     Top = 224
+  end
+  object GridPanelLayout2: TGridPanelLayout
+    Align = Bottom
+    Position.Y = 564.000000000000000000
+    Size.Width = 700.000000000000000000
+    Size.Height = 68.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    ColumnCollection = <
+      item
+        Value = 50.000000000000000000
+      end
+      item
+        Value = 50.000000000000000000
+      end>
+    ControlCollection = <
+      item
+        Column = 0
+        Control = btnChange
+        Row = 0
+      end
+      item
+        Column = 1
+        Control = btnRemovePicture
+        Row = 0
+      end>
+    RowCollection = <
+      item
+        Value = 100.000000000000000000
+      end>
+    object btnChange: TButton
+      Align = Client
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Size.Width = 330.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Change the p&icture'
+      OnClick = btnChangeClick
+    end
+    object btnRemovePicture: TButton
+      Align = Client
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Size.Width = 330.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = '&Remove the picture'
+      OnClick = btnRemovePictureClick
+    end
   end
 end

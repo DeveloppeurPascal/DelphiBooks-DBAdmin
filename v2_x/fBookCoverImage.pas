@@ -25,14 +25,17 @@ uses
 type
   TfrmBookCoverImage = class(TForm)
     ImageViewer1: TImageViewer;
-    btnChange: TButton;
     GridPanelLayout1: TGridPanelLayout;
     btnSaveAndExit: TButton;
     btnCancel: TButton;
     OpenDialog1: TOpenDialog;
+    GridPanelLayout2: TGridPanelLayout;
+    btnChange: TButton;
+    btnRemovePicture: TButton;
     procedure btnSaveAndExitClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnChangeClick(Sender: TObject);
+    procedure btnRemovePictureClick(Sender: TObject);
   private
     FCoverFileName: string;
     FDelphiBooksItem: Tdelphibooksitem;
@@ -68,14 +71,19 @@ begin
     end
     else
       ImageViewer1.Bitmap.setsize(0, 0);
-    btnSaveAndExit.Enabled := true;
-    FImageChanged := true;
+    ImageChanged := true;
   end;
+end;
+
+procedure TfrmBookCoverImage.btnRemovePictureClick(Sender: TObject);
+begin
+  ImageViewer1.Bitmap.setsize(0, 0);
+  ImageChanged := true;
 end;
 
 procedure TfrmBookCoverImage.btnSaveAndExitClick(Sender: TObject);
 begin
-  if FImageChanged then
+  if ImageChanged then
   begin
     if tfile.Exists(FCoverFileName) then
       tfile.Delete(FCoverFileName);
@@ -89,7 +97,7 @@ end;
 constructor TfrmBookCoverImage.Create(AOwner: TComponent);
 begin
   inherited;
-  FImageChanged := false;
+  ImageChanged := false;
 end;
 
 constructor TfrmBookCoverImage.CreateFromPhoto(AOwner: TComponent;
@@ -114,6 +122,7 @@ end;
 procedure TfrmBookCoverImage.SetImageChanged(const Value: boolean);
 begin
   FImageChanged := Value;
+  btnSaveAndExit.Enabled := FImageChanged;
 end;
 
 end.
