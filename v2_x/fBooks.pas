@@ -340,6 +340,7 @@ begin
   edtPubDate.Text := '';
   edtWebSite.Text := '';
   edtPageName.Text := '';
+  gplContextualMenu.Visible := false;
 end;
 
 procedure TfrmBooks.ListView1ButtonClick(const Sender: TObject;
@@ -368,6 +369,7 @@ begin
   edtPubDate.Text := b.PublishedDateYYYYMMDD;
   edtWebSite.Text := b.WebSiteURL;
   edtPageName.Text := b.PageName;
+  gplContextualMenu.Visible := true;
   TabControl1.Next;
 end;
 
