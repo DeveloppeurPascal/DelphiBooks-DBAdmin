@@ -53,7 +53,6 @@ type
     gplContextualMenu: TGridPanelLayout;
     btnDescriptions: TButton;
     procedure btnCancelClick(Sender: TObject);
-    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormCreate(Sender: TObject);
     procedure ListView1ButtonClick(const Sender: TObject;
       const AItem: TListItem; const AObject: TListItemSimpleControl);
@@ -194,29 +193,6 @@ begin
     raise exception.Create('authors list is invalid !');
   Create(AOwner);
   FDB := ADB;
-end;
-
-procedure TfrmAuthors.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
-var
-  a: TDelphiBooksAuthor;
-  LCanClose: Boolean;
-begin
-  for a in FDB.authors do
-    CanClose := CanClose and (not a.hasChanged);
-  if not CanClose then
-  begin
-    tdialogservice.MessageDialog
-      ('Changes has been done. Are you sure you want to lost them ?',
-      tmsgdlgtype.mtWarning, [tmsgdlgbtn.mbYes, tmsgdlgbtn.mbNo],
-      tmsgdlgbtn.mbNo, 0,
-      procedure(Const AResult: tmodalresult)
-      begin
-        LCanClose := AResult = mryes;
-      end);
-    CanClose := LCanClose;
-    if CanClose then
-      FDB.LoadauthorsFromRepository;
-  end;
 end;
 
 procedure TfrmAuthors.FormCreate(Sender: TObject);
