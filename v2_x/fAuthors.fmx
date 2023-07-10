@@ -223,11 +223,22 @@ object frmAuthors: TfrmAuthors
           Position.Y = 313.000000000000000000
           Margins.Left = 10.000000000000000000
           Margins.Top = 5.000000000000000000
-          Margins.Right = 10.000000000000000000
+          Margins.Right = 80.000000000000000000
           Margins.Bottom = 10.000000000000000000
-          Size.Width = 620.000000000000000000
+          Size.Width = 550.000000000000000000
           Size.Height = 22.000000000000000000
           Size.PlatformDefault = False
+          object btnPageNameURLOpen: TButton
+            Align = Right
+            Margins.Right = -70.000000000000000000
+            Position.X = 560.000000000000000000
+            Size.Width = 60.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            Text = 'Open'
+            OnClick = btnPageNameURLOpenClick
+          end
         end
         object lblLastname: TLabel
           Align = Top
