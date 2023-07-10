@@ -145,7 +145,7 @@ object frmTablesOfContent: TfrmTablesOfContent
           Size.Width = 620.000000000000000000
           Size.Height = 17.000000000000000000
           Size.PlatformDefault = False
-          Text = 'Name'
+          Text = 'Table of content'
           TabOrder = 2
         end
         object lblISOCode: TLabel
