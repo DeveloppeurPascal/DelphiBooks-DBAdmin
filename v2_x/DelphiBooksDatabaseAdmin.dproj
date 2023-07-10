@@ -382,8 +382,8 @@
             <Form>frmLanguages</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="fDescriptions.pas">
-            <Form>frmDescriptions</Form>
+        <DCCReference Include="fWebPages.pas">
+            <Form>frmWebPages</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="fBooksPublishers.pas">
@@ -396,6 +396,10 @@
         </DCCReference>
         <DCCReference Include="fBookCoverImage.pas">
             <Form>frmBookCoverImage</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="fDescriptions.pas">
+            <Form>frmDescriptions</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

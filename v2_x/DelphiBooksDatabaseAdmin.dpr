@@ -16,10 +16,11 @@ uses
   fPublishers in 'fPublishers.pas' {frmPublishers},
   fAuthors in 'fAuthors.pas' {frmAuthors},
   fLanguages in 'fLanguages.pas' {frmLanguages},
-  fDescriptions in 'fDescriptions.pas' {frmDescriptions},
+  fWebPages in 'fWebPages.pas' {frmWebPages},
   fBooksPublishers in 'fBooksPublishers.pas' {frmBooksPublishers},
   fBooksAuthors in 'fBooksAuthors.pas' {frmBooksAuthors},
-  fBookCoverImage in 'fBookCoverImage.pas' {frmBookCoverImage};
+  fBookCoverImage in 'fBookCoverImage.pas' {frmBookCoverImage},
+  fDescriptions in 'fDescriptions.pas' {frmDescriptions};
 
 {$R *.res}
 
