@@ -1,8 +1,5 @@
 unit fBookCoverImage;
 
-// TODO : permettre de supprimer une photo
-// TODO : vérifier la taille de l'image générée (ou d'origine) afin de limiter sa taille et pouvoir faire correctement les synchronisations entre serveurs
-
 interface
 
 uses
