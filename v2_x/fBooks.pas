@@ -62,6 +62,7 @@ type
     btnCoverImage: TButton;
     lblISOCode: TLabel;
     edtISOCode: TEdit;
+    btnURLOpen: TButton;
     procedure btnCloseClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ListView1ButtonClick(const Sender: TObject;
@@ -75,6 +76,7 @@ type
     procedure btnBookAuthorsClick(Sender: TObject);
     procedure brnBookPublishersClick(Sender: TObject);
     procedure btnCoverImageClick(Sender: TObject);
+    procedure btnURLOpenClick(Sender: TObject);
   private
     { Déclarations privées }
     FDB: tdelphibooksdatabase;
@@ -99,7 +101,7 @@ uses
   fTablesOfContent,
   fBooksAuthors,
   fBooksPublishers,
-  fBookCoverImage;
+  fBookCoverImage, u_urlOpen;
 
 { Tfrmbooks }
 
@@ -302,6 +304,15 @@ begin
       f.Free;
     end;
   end;
+end;
+
+procedure TfrmBooks.btnURLOpenClick(Sender: TObject);
+var
+  url: string;
+begin
+  url := edtWebSite.Text.Trim;
+  if not url.IsEmpty then
+    url_Open_In_Browser(url);
 end;
 
 constructor TfrmBooks.CreateWithDB(AOwner: TComponent;

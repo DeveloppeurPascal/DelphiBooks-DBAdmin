@@ -48,6 +48,7 @@ type
     edtPageName: TEdit;
     gplContextualMenu: TGridPanelLayout;
     btnDescriptions: TButton;
+    btnURLOpen: TButton;
     procedure btnCloseClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ListView1ButtonClick(const Sender: TObject;
@@ -57,6 +58,7 @@ type
     procedure btnItemSaveClick(Sender: TObject);
     procedure edtCompanyNameChange(Sender: TObject);
     procedure btnDescriptionsClick(Sender: TObject);
+    procedure btnURLOpenClick(Sender: TObject);
   private
     { Déclarations privées }
     FDB: tdelphibooksdatabase;
@@ -76,7 +78,7 @@ implementation
 uses
   FMX.DialogService,
   DelphiBooks.Tools,
-  fDescriptions;
+  fDescriptions, u_urlOpen;
 
 { TfrmPublishers }
 
@@ -173,6 +175,15 @@ begin
   FDB.SaveItemToRepository(p, TDelphiBooksTable.Publishers);
   RefreshListView(p.Guid);
   TabControl1.Previous;
+end;
+
+procedure TfrmPublishers.btnURLOpenClick(Sender: TObject);
+var
+  url: string;
+begin
+  url := edtWebSite.Text.Trim;
+  if not url.IsEmpty then
+    url_Open_In_Browser(url);
 end;
 
 constructor TfrmPublishers.CreateWithDB(AOwner: TComponent;

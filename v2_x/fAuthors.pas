@@ -52,6 +52,7 @@ type
     edtFirstname: TEdit;
     gplContextualMenu: TGridPanelLayout;
     btnDescriptions: TButton;
+    btnURLOpen: TButton;
     procedure btnCancelClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ListView1ButtonClick(const Sender: TObject;
@@ -60,6 +61,7 @@ type
     procedure btnItemCancelClick(Sender: TObject);
     procedure btnItemSaveClick(Sender: TObject);
     procedure btnDescriptionsClick(Sender: TObject);
+    procedure btnURLOpenClick(Sender: TObject);
   private
     { Déclarations privées }
     FDB: tdelphibooksdatabase;
@@ -79,7 +81,7 @@ implementation
 uses
   FMX.DialogService,
   DelphiBooks.Tools,
-  fDescriptions;
+  fDescriptions, u_urlOpen;
 
 { TfrmAuthors }
 
@@ -184,6 +186,15 @@ begin
   TabControl1.Previous;
 end;
 
+procedure TfrmAuthors.btnURLOpenClick(Sender: TObject);
+var
+  url: string;
+begin
+  url := edtWebSite.Text.Trim;
+  if not url.IsEmpty then
+    url_Open_In_Browser(url);
+end;
+
 constructor TfrmAuthors.CreateWithDB(AOwner: TComponent;
   ADB: tdelphibooksdatabase);
 begin
@@ -212,7 +223,7 @@ begin
 end;
 
 procedure TfrmAuthors.ListView1ButtonClick(const Sender: TObject;
-const AItem: TListItem; const AObject: TListItemSimpleControl);
+  const AItem: TListItem; const AObject: TListItemSimpleControl);
 var
   a: TDelphiBooksAuthor;
 begin
