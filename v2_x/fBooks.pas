@@ -244,8 +244,13 @@ begin
     edtPubDate.SetFocus;
     raise exception.Create
       ('Publication date is needed (YYYY0000, or YYYYMM00 or YYYYMMDD) !');
+  end
+  else if (edtPubDate.Text.Length <> 8) then
+  begin
+    edtPubDate.SetFocus;
+    raise exception.Create
+      ('Publication date must be 8 characters long (YYYY0000, or YYYYMM00 or YYYYMMDD) !');
   end;
-  // TODO : add PubDate format test (8 numbers)
 
   edtWebSite.Text := edtWebSite.Text.Trim.ToLower;
 
