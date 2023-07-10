@@ -49,6 +49,7 @@ type
     gplContextualMenu: TGridPanelLayout;
     btnDescriptions: TButton;
     btnURLOpen: TButton;
+    btnPageNameURLOpen: TButton;
     procedure btnCloseClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ListView1ButtonClick(const Sender: TObject;
@@ -59,6 +60,7 @@ type
     procedure edtCompanyNameChange(Sender: TObject);
     procedure btnDescriptionsClick(Sender: TObject);
     procedure btnURLOpenClick(Sender: TObject);
+    procedure btnPageNameURLOpenClick(Sender: TObject);
   private
     { Déclarations privées }
     FDB: tdelphibooksdatabase;
@@ -78,7 +80,8 @@ implementation
 uses
   FMX.DialogService,
   DelphiBooks.Tools,
-  fDescriptions, u_urlOpen;
+  fDescriptions,
+  u_urlOpen;
 
 { TfrmPublishers }
 
@@ -177,6 +180,18 @@ begin
   TabControl1.Previous;
 end;
 
+procedure TfrmPublishers.btnPageNameURLOpenClick(Sender: TObject);
+var
+  page_name, url: string;
+begin
+  page_name := edtPageName.Text.Trim;
+  if not page_name.IsEmpty then
+  begin
+    url := 'https://delphi-books.com/en/' + page_name;
+    url_Open_In_Browser(url);
+  end;
+end;
+
 procedure TfrmPublishers.btnURLOpenClick(Sender: TObject);
 var
   url: string;
@@ -226,7 +241,7 @@ begin
 end;
 
 procedure TfrmPublishers.ListView1ButtonClick(const Sender: TObject;
-const AItem: TListItem; const AObject: TListItemSimpleControl);
+  const AItem: TListItem; const AObject: TListItemSimpleControl);
 var
   p: TDelphiBooksPublisher;
 begin
