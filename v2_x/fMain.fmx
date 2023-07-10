@@ -2,7 +2,7 @@ object frmMain: TfrmMain
   Left = 0
   Top = 0
   Caption = 'Delphi Books Database Admin'
-  ClientHeight = 412
+  ClientHeight = 482
   ClientWidth = 640
   Position = ScreenCenter
   FormFactor.Width = 320
@@ -36,7 +36,7 @@ object frmMain: TfrmMain
     Size.Width = 620.000000000000000000
     Size.Height = 48.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 6
+    TabOrder = 7
     Text = 'Ab&out this program'
     OnClick = btnAboutClick
   end
@@ -48,11 +48,11 @@ object frmMain: TfrmMain
     Margins.Right = 10.000000000000000000
     Margins.Bottom = 10.000000000000000000
     Position.X = 10.000000000000000000
-    Position.Y = 350.000000000000000000
+    Position.Y = 418.000000000000000000
     Size.Width = 620.000000000000000000
     Size.Height = 48.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 5
+    TabOrder = 6
     Text = '&Close'
     OnClick = btnCloseClick
   end
@@ -67,7 +67,7 @@ object frmMain: TfrmMain
     Size.Width = 620.000000000000000000
     Size.Height = 48.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 4
+    TabOrder = 5
     Text = '&Books'
     OnClick = btnBooksClick
   end
@@ -115,5 +115,20 @@ object frmMain: TfrmMain
     TabOrder = 1
     Text = '&Languages'
     OnClick = btnLanguagesClick
+  end
+  object btnWebPages: TButton
+    Align = Top
+    Margins.Left = 10.000000000000000000
+    Margins.Top = 10.000000000000000000
+    Margins.Right = 10.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Position.X = 10.000000000000000000
+    Position.Y = 350.000000000000000000
+    Size.Width = 620.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    Text = '&Web pages'
+    OnClick = btnWebPagesClick
   end
 end

@@ -28,6 +28,7 @@ type
     btnPublishers: TButton;
     btnAuthors: TButton;
     btnLanguages: TButton;
+    btnWebPages: TButton;
     procedure FormCreate(Sender: TObject);
     procedure OlfAboutDialog1URLClick(const AURL: string);
     procedure btnCloseClick(Sender: TObject);
@@ -37,6 +38,7 @@ type
     procedure btnPublishersClick(Sender: TObject);
     procedure btnBooksClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure btnWebPagesClick(Sender: TObject);
   private
     FDB: TDelphiBooksDatabase;
     procedure SetDB(const Value: TDelphiBooksDatabase);
@@ -62,7 +64,8 @@ uses
   fLanguages,
   fPublishers,
   fAuthors,
-  fBooks;
+  fBooks,
+  fWebPages;
 
 procedure TfrmMain.btnAboutClick(Sender: TObject);
 begin
@@ -115,6 +118,18 @@ var
   f: TfrmPublishers;
 begin
   f := TfrmPublishers.CreateWithDB(self, DB);
+  try
+    f.ShowModal;
+  finally
+    f.Free;
+  end;
+end;
+
+procedure TfrmMain.btnWebPagesClick(Sender: TObject);
+var
+  f: TfrmWebPages;
+begin
+  f := TfrmWebPages.CreateWithDB(self, DB);
   try
     f.ShowModal;
   finally
