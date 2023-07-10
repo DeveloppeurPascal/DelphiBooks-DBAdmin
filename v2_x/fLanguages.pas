@@ -46,6 +46,7 @@ type
     edtISOCode: TEdit;
     lblPageName: TLabel;
     edtPageName: TEdit;
+    btnPageNameURLOpen: TButton;
     procedure btnCloseClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ListView1ButtonClick(const Sender: TObject;
@@ -54,6 +55,7 @@ type
     procedure btnItemCancelClick(Sender: TObject);
     procedure btnItemSaveClick(Sender: TObject);
     procedure edtTextChange(Sender: TObject);
+    procedure btnPageNameURLOpenClick(Sender: TObject);
   private
     { Déclarations privées }
     FDB: tdelphibooksdatabase;
@@ -71,7 +73,8 @@ implementation
 
 uses
   FMX.DialogService,
-  DelphiBooks.Tools;
+  DelphiBooks.Tools,
+  u_urlOpen;
 
 { TfrmLanguages }
 
@@ -176,6 +179,18 @@ begin
   TabControl1.Previous;
 end;
 
+procedure TfrmLanguages.btnPageNameURLOpenClick(Sender: TObject);
+var
+  page_name, url: string;
+begin
+  page_name := edtPageName.Text.Trim;
+  if not page_name.IsEmpty then
+  begin
+    url := 'https://delphi-books.com/en/' + page_name;
+    url_Open_In_Browser(url);
+  end;
+end;
+
 constructor TfrmLanguages.CreateWithDB(AOwner: TComponent;
   ADB: tdelphibooksdatabase);
 begin
@@ -206,7 +221,7 @@ begin
 end;
 
 procedure TfrmLanguages.ListView1ButtonClick(const Sender: TObject;
-const AItem: TListItem; const AObject: TListItemSimpleControl);
+  const AItem: TListItem; const AObject: TListItemSimpleControl);
 var
   l: TDelphiBooksLanguage;
 begin
