@@ -36,6 +36,7 @@ type
     procedure btnAuthorsClick(Sender: TObject);
     procedure btnPublishersClick(Sender: TObject);
     procedure btnBooksClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     FDB: TDelphiBooksDatabase;
     procedure SetDB(const Value: TDelphiBooksDatabase);
@@ -139,6 +140,11 @@ begin
       btnPublishers.Enabled := true;
       btnBooks.Enabled := true;
     end);
+end;
+
+procedure TfrmMain.FormDestroy(Sender: TObject);
+begin
+  DB.Free;
 end;
 
 procedure TfrmMain.getFolders(var RootFolder, DBFolder: string);

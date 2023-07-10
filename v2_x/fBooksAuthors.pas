@@ -64,9 +64,9 @@ begin
     a := FDB.Authors.GetItemByGUID(lvDestination.Items[i].tagstring);
     if not assigned(a) then
       raise exception.Create('Author ' + lvDestination.Items[i].text +
-        ' not foud in the database !');
+        ' not found in the database !');
     ashort := TDelphiBooksAuthorShort.CreateFromJSON
-      (a.ToJSONObject(true), true);
+      (a.ToJSONObject(true), true, true);
     if not assigned(ashort) then
       raise exception.Create('JSON format error for author ' +
         lvDestination.Items[i].text + ' !');

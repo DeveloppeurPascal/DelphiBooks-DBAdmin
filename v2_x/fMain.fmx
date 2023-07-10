@@ -9,6 +9,7 @@ object frmMain: TfrmMain
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   DesignerMasterStyle = 0
   object OlfAboutDialog1: TOlfAboutDialog
     VersionNumero = '2.1'

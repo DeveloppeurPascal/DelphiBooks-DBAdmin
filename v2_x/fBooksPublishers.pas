@@ -65,9 +65,9 @@ begin
     p := FDB.Publishers.GetItemByGUID(lvDestination.Items[i].tagstring);
     if not assigned(p) then
       raise exception.Create('Publisher ' + lvDestination.Items[i].text +
-        ' not foud in the database !');
+        ' not found in the database !');
     pshort := TDelphiBooksPublisherShort.CreateFromJSON
-      (p.ToJSONObject(true), true);
+      (p.ToJSONObject(true), true, true);
     if not assigned(pshort) then
       raise exception.Create('JSON format error for Publisher ' +
         lvDestination.Items[i].text + ' !');
