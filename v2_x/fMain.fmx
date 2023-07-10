@@ -12,8 +12,8 @@ object frmMain: TfrmMain
   OnDestroy = FormDestroy
   DesignerMasterStyle = 0
   object OlfAboutDialog1: TOlfAboutDialog
-    VersionNumero = '2.1'
-    VersionDate = '20230705'
+    VersionNumero = '2.2'
+    VersionDate = '20230710'
     MultiResBitmap = <
       item
       end>
