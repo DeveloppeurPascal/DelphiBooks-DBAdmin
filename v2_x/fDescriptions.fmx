@@ -145,7 +145,7 @@ object frmDescriptions: TfrmDescriptions
           Size.Width = 620.000000000000000000
           Size.Height = 17.000000000000000000
           Size.PlatformDefault = False
-          Text = 'Name'
+          Text = 'Description'
           TabOrder = 2
         end
         object lblISOCode: TLabel
