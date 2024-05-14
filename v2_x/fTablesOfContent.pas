@@ -29,7 +29,13 @@ uses
   FMX.Edit,
   FMX.Memo.Types,
   FMX.ScrollBox,
-  FMX.Memo;
+  FMX.Memo,
+  FMX.fhtmlcomp,
+  FMX.fhtmledit,
+  FMX.fhteditactions,
+  System.Actions,
+  FMX.ActnList,
+  FMX.Menus;
 
 type
   TfrmTablesOfContent = class(TForm)
@@ -48,7 +54,22 @@ type
     lblText: TLabel;
     lblISOCode: TLabel;
     edtISOCode: TEdit;
-    mmoText: TMemo;
+    tcText: TTabControl;
+    tiWYSIWYG: TTabItem;
+    edtWYSIWYG: THtmlEditor;
+    tiHTMLSource: TTabItem;
+    edtSource: TMemo;
+    ActionList1: TActionList;
+    HtActionCopy1: THtActionCopy;
+    HtActionCut1: THtActionCut;
+    HtActionPaste1: THtActionPaste;
+    MainMenu1: TMainMenu;
+    mnuMacOS: TMenuItem;
+    mnuEdition: TMenuItem;
+    mnuCouper: TMenuItem;
+    mnuCopier: TMenuItem;
+    mnuColler: TMenuItem;
+    mnuToutSelectionner: TMenuItem;
     procedure btnCloseClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ListView1ButtonClick(const Sender: TObject;
@@ -56,12 +77,18 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnItemCancelClick(Sender: TObject);
     procedure btnItemCloseClick(Sender: TObject);
+    procedure tcTextChange(Sender: TObject);
+    procedure mnuCollerClick(Sender: TObject);
+    procedure mnuCopierClick(Sender: TObject);
+    procedure mnuCouperClick(Sender: TObject);
+    procedure mnuToutSelectionnerClick(Sender: TObject);
   private
-    { Déclarations privées }
     fTableOfContents: TDelphiBooksTableOfContentsObjectList;
     fDB: TDelphiBooksDatabase;
+    function GetContentText: string;
+    procedure SetContentText(const Value: string);
   public
-    { Déclarations publiques }
+    property ContentText: string read GetContentText write SetContentText;
     constructor CreateWithTableOfContentsList(AOwner: TComponent;
       ATableOfContents: TDelphiBooksTableOfContentsObjectList;
       ADB: TDelphiBooksDatabase);
@@ -104,12 +131,9 @@ begin
   if TabControl1.ActiveTab <> tiEdit then
     exit;
 
-  mmoText.Text := mmoText.Text.Trim;
-  if mmoText.Text.IsEmpty then
-  begin
-    mmoText.SetFocus;
+  ContentText := ContentText.Trim;
+  if ContentText.IsEmpty then
     raise exception.Create('Text is needed !');
-  end;
 
   edtISOCode.Text := edtISOCode.Text.Trim.ToLower;
   if edtISOCode.Text.IsEmpty then
@@ -120,7 +144,8 @@ begin
   else if (edtISOCode.Text.Length <> 2) then
   begin
     edtISOCode.SetFocus;
-    raise exception.Create('Use the ISO 2 letters language code for a table of content !');
+    raise exception.Create
+      ('Use the ISO 2 letters language code for a table of content !');
   end
   else
   begin
@@ -152,7 +177,7 @@ begin
     d := TDelphiBooksTableOfContent.Create;
     fTableOfContents.Add(d);
   end;
-  d.Text := mmoText.Text;
+  d.Text := ContentText;
   d.LanguageISOCode := edtISOCode.Text;
   if assigned(fTableOfContents.Parent) then
     fTableOfContents.Parent.sethaschanged(true);
@@ -185,12 +210,28 @@ procedure TfrmTablesOfContent.FormCreate(Sender: TObject);
 begin
   TabControl1.ActiveTab := tiList;
   RefreshListView;
+
+  // Adaptation du menu pour macOS
+{$IFDEF MACOS}
+  mnuMacOS.Visible := true;
+{$ELSE}
+  mnuMacOS.Visible := false;
+{$ENDIF}
+end;
+
+function TfrmTablesOfContent.GetContentText: string;
+begin
+  if tcText.ActiveTab = tiWYSIWYG then
+    result := edtWYSIWYG.Doc.InnerHTML
+  else
+    result := edtSource.Text;
 end;
 
 procedure TfrmTablesOfContent.InitEdit;
 begin
-  mmoText.Text := '';
+  ContentText := '';
   edtISOCode.Text := '';
+  tcText.ActiveTab := tiWYSIWYG;
 end;
 
 procedure TfrmTablesOfContent.ListView1ButtonClick(const Sender: TObject;
@@ -213,9 +254,45 @@ begin
   d := AItem.TagObject as TDelphiBooksTableOfContent;
 
   InitEdit;
-  mmoText.Text := d.Text;
+  ContentText := d.Text;
   edtISOCode.Text := d.LanguageISOCode;
   TabControl1.Next;
+end;
+
+procedure TfrmTablesOfContent.mnuCollerClick(Sender: TObject);
+begin
+  if TabControl1.ActiveTab = tiEdit then
+    if tcText.ActiveTab = tiWYSIWYG then
+      HtActionPaste1.Execute
+    else
+      edtSource.PasteFromClipboard;
+end;
+
+procedure TfrmTablesOfContent.mnuCopierClick(Sender: TObject);
+begin
+  if TabControl1.ActiveTab = tiEdit then
+    if tcText.ActiveTab = tiWYSIWYG then
+      HtActionCopy1.Execute
+    else
+      edtSource.CopyToClipboard;
+end;
+
+procedure TfrmTablesOfContent.mnuCouperClick(Sender: TObject);
+begin
+  if TabControl1.ActiveTab = tiEdit then
+    if tcText.ActiveTab = tiWYSIWYG then
+      HtActionCut1.Execute
+    else
+      edtSource.CutToClipboard;
+end;
+
+procedure TfrmTablesOfContent.mnuToutSelectionnerClick(Sender: TObject);
+begin
+  if TabControl1.ActiveTab = tiEdit then
+    if tcText.ActiveTab = tiWYSIWYG then
+      edtWYSIWYG.SelectAll
+    else
+      edtSource.SelectAll;
 end;
 
 procedure TfrmTablesOfContent.RefreshListView(AGuid: string);
@@ -239,6 +316,34 @@ begin
     end;
   finally
     ListView1.EndUpdate;
+  end;
+end;
+
+procedure TfrmTablesOfContent.SetContentText(const Value: string);
+begin
+  edtWYSIWYG.HTML.Text := Value;
+  edtSource.Text := Value;
+end;
+
+procedure TfrmTablesOfContent.tcTextChange(Sender: TObject);
+begin
+  if tcText.ActiveTab = tiWYSIWYG then
+  begin
+    edtWYSIWYG.HTML.Text := edtSource.Text;
+    tthread.ForceQueue(nil,
+      procedure
+      begin
+        edtWYSIWYG.SetFocus;
+      end);
+  end;
+  if tcText.ActiveTab = tiHTMLSource then
+  begin
+    edtSource.Text := edtWYSIWYG.Doc.InnerHTML;
+    tthread.ForceQueue(nil,
+      procedure
+      begin
+        edtSource.SetFocus;
+      end);
   end;
 end;
 
