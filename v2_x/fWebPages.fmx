@@ -15,7 +15,7 @@ object frmWebPages: TfrmWebPages
     Size.Width = 640.000000000000000000
     Size.Height = 480.000000000000000000
     Size.PlatformDefault = False
-    TabIndex = 0
+    TabIndex = 2
     TabOrder = 0
     TabPosition = None
     Sizes = (
@@ -29,7 +29,8 @@ object frmWebPages: TfrmWebPages
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      TextSettings.Trimming = None
+      IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -90,6 +91,7 @@ object frmWebPages: TfrmWebPages
           Size.PlatformDefault = False
           TabOrder = 0
           Text = '&Close'
+          TextSettings.Trimming = None
           OnClick = btnCloseClick
         end
       end
@@ -111,6 +113,7 @@ object frmWebPages: TfrmWebPages
           Size.PlatformDefault = False
           TabOrder = 0
           Text = '&Add'
+          TextSettings.Trimming = None
           OnClick = btnAddPageClick
         end
       end
@@ -119,6 +122,7 @@ object frmWebPages: TfrmWebPages
       CustomIcon = <
         item
         end>
+      TextSettings.Trimming = None
       IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
@@ -126,6 +130,8 @@ object frmWebPages: TfrmWebPages
       StyleLookup = ''
       TabOrder = 0
       Text = 'tiEditPage'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
       object lvContents: TListView
         ItemAppearanceClassName = 'TImageListItemBottomDetailRightButtonAppearance'
         ItemEditAppearanceClassName = 'TImageListItemBottomDetailRightButtonShowCheckAppearance'
@@ -140,7 +146,7 @@ object frmWebPages: TfrmWebPages
         Size.Width = 620.000000000000000000
         Size.Height = 223.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 0
+        TabOrder = 4
         CanSwipeDelete = False
         OnButtonClick = lvContentsButtonClick
         SearchVisible = True
@@ -149,7 +155,7 @@ object frmWebPages: TfrmWebPages
         Size.Width = 640.000000000000000000
         Size.Height = 68.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 2
+        TabOrder = 0
         object btnAddContent: TButton
           Align = Right
           Margins.Left = 10.000000000000000000
@@ -163,13 +169,14 @@ object frmWebPages: TfrmWebPages
           Size.PlatformDefault = False
           TabOrder = 0
           Text = '&Add'
+          TextSettings.Trimming = None
           OnClick = btnAddContentClick
         end
       end
       object edtPageName: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
         Align = Top
-        TabOrder = 6
+        TabOrder = 2
         Position.X = 10.000000000000000000
         Position.Y = 105.000000000000000000
         Margins.Left = 10.000000000000000000
@@ -188,6 +195,7 @@ object frmWebPages: TfrmWebPages
           Size.PlatformDefault = False
           TabOrder = 0
           Text = 'Open'
+          TextSettings.Trimming = None
           OnClick = btnPageNameURLOpenClick
         end
       end
@@ -203,7 +211,7 @@ object frmWebPages: TfrmWebPages
         Size.Height = 17.000000000000000000
         Size.PlatformDefault = False
         Text = 'Page name'
-        TabOrder = 5
+        TabOrder = 1
       end
       object GridPanelLayout3: TGridPanelLayout
         Align = Bottom
@@ -211,7 +219,7 @@ object frmWebPages: TfrmWebPages
         Size.Width = 640.000000000000000000
         Size.Height = 68.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 1
+        TabOrder = 5
         ColumnCollection = <
           item
             Value = 50.000000000000000000
@@ -245,6 +253,7 @@ object frmWebPages: TfrmWebPages
           Size.PlatformDefault = False
           TabOrder = 0
           Text = '&Save'
+          TextSettings.Trimming = None
           OnClick = btnPageSaveClick
         end
         object btnPageCancel: TButton
@@ -258,6 +267,7 @@ object frmWebPages: TfrmWebPages
           Size.PlatformDefault = False
           TabOrder = 1
           Text = 'Ca&ncel'
+          TextSettings.Trimming = None
           OnClick = btnPageCancelClick
         end
       end
@@ -273,14 +283,15 @@ object frmWebPages: TfrmWebPages
         Size.Height = 17.000000000000000000
         Size.PlatformDefault = False
         Text = 'Page content'
-        TabOrder = 4
+        TabOrder = 3
       end
     end
     object tiEditContent: TTabItem
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      TextSettings.Trimming = None
+      IsSelected = True
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -323,12 +334,12 @@ object frmWebPages: TfrmWebPages
           Size.Height = 17.000000000000000000
           Size.PlatformDefault = False
           Text = 'Language ISO code (2 letters)'
-          TabOrder = 2
+          TabOrder = 0
         end
         object edtISOCode: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Top
-          TabOrder = 3
+          TabOrder = 1
           Position.X = 10.000000000000000000
           Position.Y = 37.000000000000000000
           Margins.Left = 10.000000000000000000
@@ -367,12 +378,12 @@ object frmWebPages: TfrmWebPages
           Size.Height = 17.000000000000000000
           Size.PlatformDefault = False
           Text = 'Page title (for <TITLE> tag)'
-          TabOrder = 0
+          TabOrder = 2
         end
         object edtTitle: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Top
-          TabOrder = 1
+          TabOrder = 3
           Position.X = 10.000000000000000000
           Position.Y = 106.000000000000000000
           Margins.Left = 10.000000000000000000
@@ -424,6 +435,7 @@ object frmWebPages: TfrmWebPages
           Size.PlatformDefault = False
           TabOrder = 0
           Text = '&Close'
+          TextSettings.Trimming = None
           OnClick = btnContentCloseClick
         end
         object btnContentCancel: TButton
@@ -437,6 +449,7 @@ object frmWebPages: TfrmWebPages
           Size.PlatformDefault = False
           TabOrder = 1
           Text = 'Ca&ncel'
+          TextSettings.Trimming = None
           OnClick = btnContentCancelClick
         end
       end
