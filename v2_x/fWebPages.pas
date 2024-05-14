@@ -29,7 +29,13 @@ uses
   FMX.Edit,
   FMX.Memo.Types,
   FMX.ScrollBox,
-  FMX.Memo;
+  FMX.Memo,
+  FMX.fhtmlcomp,
+  FMX.fhtmledit,
+  FMX.fhteditactions,
+  System.Actions,
+  FMX.ActnList,
+  FMX.Menus;
 
 type
   TfrmWebPages = class(TForm)
@@ -48,7 +54,6 @@ type
     lblText: TLabel;
     lblISOCode: TLabel;
     edtISOCode: TEdit;
-    mmoText: TMemo;
     lblTitle: TLabel;
     edtTitle: TEdit;
     tiEditPage: TTabItem;
@@ -62,6 +67,22 @@ type
     btnPageSave: TButton;
     btnPageCancel: TButton;
     lblContents: TLabel;
+    tcText: TTabControl;
+    tiWYSIWYG: TTabItem;
+    edtWYSIWYG: THtmlEditor;
+    tiHTMLSource: TTabItem;
+    edtSource: TMemo;
+    ActionList1: TActionList;
+    HtActionCopy1: THtActionCopy;
+    HtActionCut1: THtActionCut;
+    HtActionPaste1: THtActionPaste;
+    MainMenu1: TMainMenu;
+    mnuMacOS: TMenuItem;
+    mnuEdition: TMenuItem;
+    mnuCouper: TMenuItem;
+    mnuCopier: TMenuItem;
+    mnuColler: TMenuItem;
+    mnuToutSelectionner: TMenuItem;
     procedure btnCloseClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure lvPagesButtonClick(const Sender: TObject; const AItem: TListItem;
@@ -75,12 +96,18 @@ type
     procedure btnPageNameURLOpenClick(Sender: TObject);
     procedure btnPageCancelClick(Sender: TObject);
     procedure btnPageSaveClick(Sender: TObject);
+    procedure tcTextChange(Sender: TObject);
+    procedure mnuCollerClick(Sender: TObject);
+    procedure mnuCopierClick(Sender: TObject);
+    procedure mnuCouperClick(Sender: TObject);
+    procedure mnuToutSelectionnerClick(Sender: TObject);
   private
-    { Déclarations privées }
     fDB: TDelphiBooksDatabase;
     fItem: TDelphiBooksWebPage;
+    function GetContentText: string;
+    procedure SetContentText(const Value: string);
   public
-    { Déclarations publiques }
+    property ContentText: string read GetContentText write SetContentText;
     constructor CreateWithDB(AOwner: TComponent; ADB: TDelphiBooksDatabase);
     procedure RefreshContentsListView(AGuid: string = '');
     procedure RefreshPagesListView(AGuid: string = '');
@@ -172,12 +199,9 @@ begin
     raise exception.Create('Title needed !');
   end;
 
-  mmoText.Text := mmoText.Text.Trim;
-  if mmoText.Text.IsEmpty then
-  begin
-    mmoText.SetFocus;
+  ContentText := ContentText.Trim;
+  if ContentText.IsEmpty then
     raise exception.Create('Text is needed !');
-  end;
 
   if assigned(lvContents.Selected) and assigned(lvContents.Selected.TagObject)
     and (lvContents.Selected.TagObject is TDelphiBooksWebPageContent) then
@@ -191,7 +215,7 @@ begin
     fItem.Contents.Add(wpc);
   end;
   wpc.Title := edtTitle.Text;
-  wpc.Text := mmoText.Text;
+  wpc.Text := ContentText;
   wpc.LanguageISOCode := edtISOCode.Text;
   fItem.sethaschanged(true);
   RefreshContentsListView(wpc.Guid);
@@ -284,13 +308,29 @@ procedure TfrmWebPages.FormCreate(Sender: TObject);
 begin
   TabControl1.ActiveTab := tiList;
   RefreshPagesListView;
+
+  // Adaptation du menu pour macOS
+{$IFDEF MACOS}
+  mnuMacOS.Visible := true;
+{$ELSE}
+  mnuMacOS.Visible := false;
+{$ENDIF}
+end;
+
+function TfrmWebPages.GetContentText: string;
+begin
+  if tcText.ActiveTab = tiWYSIWYG then
+    result := edtWYSIWYG.Doc.InnerHTML
+  else
+    result := edtSource.Text;
 end;
 
 procedure TfrmWebPages.InitContentEdit;
 begin
   edtTitle.Text := '';
-  mmoText.Text := '';
+  ContentText := '';
   edtISOCode.Text := '';
+  tcText.ActiveTab := tiWYSIWYG;
 end;
 
 procedure TfrmWebPages.InitPageEdit;
@@ -321,7 +361,7 @@ begin
 
   InitContentEdit;
   edtTitle.Text := wpc.Title;
-  mmoText.Text := wpc.Text;
+  ContentText := wpc.Text;
   edtISOCode.Text := wpc.LanguageISOCode;
   TabControl1.Next;
 end;
@@ -348,6 +388,42 @@ begin
   RefreshContentsListView;
   btnAddContent.Visible := true;
   TabControl1.Next;
+end;
+
+procedure TfrmWebPages.mnuCollerClick(Sender: TObject);
+begin
+  if TabControl1.ActiveTab = tiEditContent then
+    if tcText.ActiveTab = tiWYSIWYG then
+      HtActionPaste1.Execute
+    else
+      edtSource.PasteFromClipboard;
+end;
+
+procedure TfrmWebPages.mnuCopierClick(Sender: TObject);
+begin
+  if TabControl1.ActiveTab = tiEditContent then
+    if tcText.ActiveTab = tiWYSIWYG then
+      HtActionCopy1.Execute
+    else
+      edtSource.CopyToClipboard;
+end;
+
+procedure TfrmWebPages.mnuCouperClick(Sender: TObject);
+begin
+  if TabControl1.ActiveTab = tiEditContent then
+    if tcText.ActiveTab = tiWYSIWYG then
+      HtActionCut1.Execute
+    else
+      edtSource.CutToClipboard;
+end;
+
+procedure TfrmWebPages.mnuToutSelectionnerClick(Sender: TObject);
+begin
+  if TabControl1.ActiveTab = tiEditContent then
+    if tcText.ActiveTab = tiWYSIWYG then
+      edtWYSIWYG.SelectAll
+    else
+      edtSource.SelectAll;
 end;
 
 procedure TfrmWebPages.RefreshContentsListView(AGuid: string);
@@ -394,6 +470,34 @@ begin
     end;
   finally
     lvPages.EndUpdate;
+  end;
+end;
+
+procedure TfrmWebPages.SetContentText(const Value: string);
+begin
+  edtWYSIWYG.HTML.Text := Value;
+  edtSource.Text := Value;
+end;
+
+procedure TfrmWebPages.tcTextChange(Sender: TObject);
+begin
+  if tcText.ActiveTab = tiWYSIWYG then
+  begin
+    edtWYSIWYG.HTML.Text := edtSource.Text;
+    tthread.ForceQueue(nil,
+      procedure
+      begin
+        edtWYSIWYG.SetFocus;
+      end);
+  end;
+  if tcText.ActiveTab = tiHTMLSource then
+  begin
+    edtSource.Text := edtWYSIWYG.Doc.InnerHTML;
+    tthread.ForceQueue(nil,
+      procedure
+      begin
+        edtSource.SetFocus;
+      end);
   end;
 end;
 
