@@ -146,6 +146,7 @@ begin
   btnAuthors.Enabled := false;
   btnPublishers.Enabled := false;
   btnBooks.Enabled := false;
+  btnWebPages.Enabled := false;
   tthread.ForceQueue(nil,
     procedure
     begin
@@ -154,6 +155,7 @@ begin
       btnAuthors.Enabled := true;
       btnPublishers.Enabled := true;
       btnBooks.Enabled := true;
+      btnWebPages.Enabled := true;
     end);
 end;
 
