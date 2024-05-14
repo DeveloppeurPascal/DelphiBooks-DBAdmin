@@ -46,6 +46,7 @@ type
   protected
     procedure getFolders(var RootFolder, DBFolder: string);
     procedure LoadDatabase;
+    procedure InitMainFormCaption;
   public
     { Déclarations publiques }
     property DB: TDelphiBooksDatabase read FDB write SetDB;
@@ -139,9 +140,8 @@ end;
 
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
-  OlfAboutDialog1.Titre := caption;
-  caption := caption + ' v' + OlfAboutDialog1.VersionNumero + ' - ' +
-    OlfAboutDialog1.VersionDate;
+  InitMainFormCaption;
+
   btnLanguages.Enabled := false;
   btnAuthors.Enabled := false;
   btnPublishers.Enabled := false;
@@ -198,6 +198,17 @@ begin
     raise exception.Create('Can''t define database path.');
   if not tdirectory.Exists(DBFolder) then
     raise exception.Create('Can''t find folder "' + DBFolder + '".');
+end;
+
+procedure TfrmMain.InitMainFormCaption;
+begin
+{$IFDEF DEBUG}
+  caption := '[DEBUG] ';
+{$ELSE}
+  caption := '';
+{$ENDIF}
+  caption := caption + OlfAboutDialog1.Titre + ' v' +
+    OlfAboutDialog1.VersionNumero;
 end;
 
 procedure TfrmMain.LoadDatabase;
