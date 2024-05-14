@@ -10,3 +10,6 @@
 [submodule "lib-externes/DelphiBooks-Common"]
 	path = lib-externes/DelphiBooks-Common
 	url = https://github.com/DeveloppeurPascal/DelphiBooks-Common.git
+[submodule "lib-externes/DelphiBooks-WebSite"]
+	path = lib-externes/DelphiBooks-WebSite
+	url = https://github.com/DeveloppeurPascal/DelphiBooks-WebSite.git
