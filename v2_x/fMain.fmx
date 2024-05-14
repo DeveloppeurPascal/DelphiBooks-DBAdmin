@@ -21,8 +21,16 @@ object frmMain: TfrmMain
     Images = DMAboutBoxImage.ImageList1
     ImageIndex = 0
     URL = 'https://delphi-books.com'
+    Licence.Strings = (
+      
+        'This software is supplied as is, with or without bugs. No warran' +
+        'ty is offered as to its operation or the data processed. Make ba' +
+        'ckups!'
+      ''
+      'This program is distributed as a freeware.')
     onURLClick = OlfAboutDialog1URLClick
     Langue = EN
+    Copyright = '(c) 2024 Patrick Pr'#233'martin'
     Left = 48
     Top = 24
   end
