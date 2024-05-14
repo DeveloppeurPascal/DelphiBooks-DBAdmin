@@ -21,6 +21,19 @@ object frmMain: TfrmMain
     Images = DMAboutBoxImage.ImageList1
     ImageIndex = 0
     URL = 'https://delphi-books.com'
+    Description.Strings = (
+      
+        'This program is the database content manager for Delphi-Books.co' +
+        'm website.'
+      ''
+      
+        'You can use it to create and edit authors, publishers, books and' +
+        ' web pages.'
+      ''
+      
+        'For real datas in Delphi Books project, you must fork the reposi' +
+        'tory at https://github.com/DeveloppeurPascal/DelphiBooks-WebSite' +
+        ', do your changes and create a PULL REQUEST.')
     Licence.Strings = (
       
         'This software is supplied as is, with or without bugs. No warran' +
