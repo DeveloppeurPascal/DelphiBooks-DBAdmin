@@ -1,3 +1,39 @@
+(* C2PP
+  ***************************************************************************
+
+  Delphi Books Database Admin
+  Copyright (c) 2020-2026 Patrick PREMARTIN
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Affero General Public License as
+  published by the Free Software Foundation, either version 3 of the
+  License, or (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU Affero General Public License for more details.
+
+  You should have received a copy of the GNU Affero General Public License
+  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+  ***************************************************************************
+
+  Author(s) :
+  Patrick PREMARTIN
+
+  Site :
+  https://delphi-books.com/opendata.html
+
+  Project site :
+  https://github.com/DeveloppeurPascal/DelphiBooks-DBAdmin
+
+  ***************************************************************************
+  File last update : 2026-06-15T18:30:10.672+02:00
+  Signature : 6bac9826907c48b49b43d82cc83aa4ca9127c666
+  ***************************************************************************
+*)
+
 unit fGestionAuteurs;
 
 // TODO : lors de l'enregistrement des modifications, s'assurer que le nom/prénom ou pseudo sont bien saisis
