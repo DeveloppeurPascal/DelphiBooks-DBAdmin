@@ -9,7 +9,7 @@
 	url = https://github.com/DeveloppeurPascal/AboutDialog-Delphi-Component.git
 [submodule "lib-externes/DelphiBooks-Common"]
 	path = lib-externes/DelphiBooks-Common
-	url = https://github.com/DeveloppeurPascal/DelphiBooks-Common.git
+	url = https://codeberg.org/Delphi-Books/DelphiBooks-Common.git
 [submodule "lib-externes/DelphiBooks-WebSite"]
 	path = lib-externes/DelphiBooks-WebSite
-	url = https://github.com/DeveloppeurPascal/DelphiBooks-WebSite.git
+	url = https://codeberg.org/Delphi-Books/DelphiBooks-WebSite.git

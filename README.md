@@ -2,9 +2,16 @@
 
 [Cette page en français.](LISEZMOI.md)
 
+> [!WARNING]
+> Following Microsoft's decision to merge GitHub into its AI division in the summer of 2025 and therefore to consider what we publish on it only as a source of training for its models without any compensation (apart from hosting the source codes) or to bombard us with their injunctions to use Copilot everywhere, for everything and anything, I have decided to stop maintaining the repositories here.
+>
+> Maintenance of this project has been moved to Codeberg at https://codeberg.org/Delphi-Books
+>
+> Codeberg is a community-based hosting service located in Europe that respects developers, the license of each project, and the privacy of those who connect to it.
+
 Database management program for [Delphi-Books.com](https://delphi-books.com).
 
-See [this code repository](https://github.com/DeveloppeurPascal/DelphiBooks-WebSite) to use this program in production.
+See [this code repository](https://codeberg.org/Delphi-Books/DelphiBooks-WebSite) to use this program in production.
 
 This code repository contains a project developed in Object Pascal language under Delphi. You don't know what Delphi is and where to download it ? You'll learn more [on this web site](https://delphi-resources.developpeur-pascal.fr/).
 
@@ -20,14 +27,14 @@ Follow my development streams of software, video games, mobile applications and 
 
 ## Source code installation
 
-To download this code repository, we recommend using "git", but you can also download a ZIP file directly from [its GitHub repository](https://github.com/DeveloppeurPascal/DelphiBooks-DBAdmin).
+To download this code repository, we recommend using "git", but you can also download a ZIP file directly from [its GitHub repository](https://codeberg.org/Delphi-Books/DelphiBooks-DBAdmin).
 
 This project uses dependencies in the form of sub-modules. They will be absent from the ZIP file. You'll have to download them by hand.
 
 * [DeveloppeurPascal/AboutDialog-Delphi-Component](https://github.com/DeveloppeurPascal/AboutDialog-Delphi-Component) must be in ./lib-externes/AboutDialog-Delphi-Component subfolder
 * [DeveloppeurPascal/DeepL4Delphi](https://github.com/DeveloppeurPascal/DeepL4Delphi) must be in ./lib-externes/DeepL4Delphi subfolder
-* [DeveloppeurPascal/DelphiBooks-Common](https://github.com/DeveloppeurPascal/DelphiBooks-Common) must be in ./lib-externes/DelphiBooks-Common subfolder
-* [DeveloppeurPascal/DelphiBooks-WebSite](https://github.com/DeveloppeurPascal/DelphiBooks-WebSite) must be in ./lib-externes/DelphiBooks-WebSite subfolder
+* [DeveloppeurPascal/DelphiBooks-Common](https://codeberg.org/Delphi-Books/DelphiBooks-Common) must be in ./lib-externes/DelphiBooks-Common subfolder
+* [DeveloppeurPascal/DelphiBooks-WebSite](https://codeberg.org/Delphi-Books/DelphiBooks-WebSite) must be in ./lib-externes/DelphiBooks-WebSite subfolder
 * [DeveloppeurPascal/librairies](https://github.com/DeveloppeurPascal/librairies) must be in ./lib-externes/librairies subfolder
 
 ## Documentation and support
@@ -50,7 +57,7 @@ Normally, my libraries and components should also run on at least the current ve
 
 There's no guarantee of compatibility with earlier versions, even though I try to keep my code clean and avoid using too many of the new ways of writing in it (type inference, inline var and multiline strings).
 
-If you detect any anomalies on earlier versions, please don't hesitate to [report them](https://github.com/DeveloppeurPascal/DelphiBooks-DBAdmin/issues) so that I can test and try to correct or provide a workaround.
+If you detect any anomalies on earlier versions, please don't hesitate to [report them](https://codeberg.org/Delphi-Books/DelphiBooks-DBAdmin/issues) so that I can test and try to correct or provide a workaround.
 
 ## License to use this code repository and its contents
 
@@ -69,7 +76,7 @@ The source codes of this code repository as well as any compiled version are pro
 
 ## How to ask a new feature, report a bug or a security issue ?
 
-If you want an answer from the project owner the best way to ask for a new feature or report a bug is to go to [the GitHub repository](https://github.com/DeveloppeurPascal/DelphiBooks-DBAdmin) and [open a new issue](https://github.com/DeveloppeurPascal/DelphiBooks-DBAdmin/issues).
+If you want an answer from the project owner the best way to ask for a new feature or report a bug is to go to [the GitHub repository](https://codeberg.org/Delphi-Books/DelphiBooks-DBAdmin) and [open a new issue](https://codeberg.org/Delphi-Books/DelphiBooks-DBAdmin/issues).
 
 If you found a security issue please don't report it publicly before a patch is available. Explain the case by [sending a private message to the author](https://developpeur-pascal.fr/nous-contacter.php).
 

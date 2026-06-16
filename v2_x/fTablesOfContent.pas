@@ -26,10 +26,10 @@
   https://delphi-books.com/opendata.html
 
   Project site :
-  https://github.com/DeveloppeurPascal/DelphiBooks-DBAdmin
+  https://codeberg.org/Delphi-Books/DelphiBooks-DBAdmin
 
   ***************************************************************************
-  File last update : 2026-06-15T18:30:10.805+02:00
+  File last update : 2026-06-15T19:35:44.173+02:00
   Signature : fd4b753348782a2813cc4f6c674b622be25ad3aa
   ***************************************************************************
 *)
